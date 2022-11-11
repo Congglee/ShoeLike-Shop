@@ -1,0 +1,32 @@
+body {
+  line-height: 1;
+  font-family: $font;
+  color: $text-color;
+  font-weight: 400;
+  background-color: $white-color;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-family: $font;
+}
+
+.wrapper {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.boxed {
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

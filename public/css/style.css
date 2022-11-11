@@ -1,0 +1,84 @@
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+
+input {
+  line-height: normal;
+}
+
+label,
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  line-height: 1;
+  font-family: "Noto Sans", sans-serif;
+  color: #13283f;
+  font-weight: 400;
+  background-color: #fff;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.wrapper {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.boxed {
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #13283f;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */
