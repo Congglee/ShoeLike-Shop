@@ -1,10 +1,31 @@
 <?php
-echo "<h1>tuva9 đã sửa file này</h1>";
+session_start();
+ob_start();
 
-// Công việc của trưởng nhóm
+include "global.php";
 
-// Công việc của phó nhóm
+include "model/category.php";
+include "model/comment.php";
+include "model/order.php";
+include "model/product.php";
+include "model/stat.php"; // thống kê 
+include "model/user.php";
 
-// Công việc của phó nhóm 2
+include "view/layout/header.php";
 
-// Công việc của phó nhóm 3
+if (isset($_GET['act'])) {
+  $act = $_GET['act'];
+  switch ($act) {
+      // case "":
+      // code ....
+      // break;
+
+    default:
+      include "view/layout/home.php";
+      break;
+  }
+} else {
+  include "view/layout/home.php";
+}
+
+include "view/layout/footer.php";
