@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 09, 2022 lúc 04:05 PM
+-- Thời gian đã tạo: Th10 16, 2022 lúc 04:42 PM
 -- Phiên bản máy phục vụ: 10.4.25-MariaDB
 -- Phiên bản PHP: 7.4.30
 
@@ -55,6 +55,11 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `order` (
   `id_order` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` int(11) NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL,
   `id_user` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -68,7 +73,7 @@ CREATE TABLE `order_total` (
   `id_order_total` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `id_user` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `id_order` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `id_pro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -84,13 +89,38 @@ CREATE TABLE `product` (
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `price_sale` int(11) DEFAULT 0,
-  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `brand` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `special` int(1) NOT NULL DEFAULT 0,
   `views` int(11) NOT NULL DEFAULT 0,
   `gender` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_cate` int(11) NOT NULL
+  `id_cate` int(11) NOT NULL,
+  `id_brand` int(11) NOT NULL,
+  `id_pro_color` int(11) NOT NULL,
+  `id_pro_size` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_brand`
+--
+
+CREATE TABLE `product_brand` (
+  `id_brand` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_color`
+--
+
+CREATE TABLE `product_color` (
+  `id_pro_color` int(11) NOT NULL,
+  `color` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `id_pro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -102,6 +132,18 @@ CREATE TABLE `product` (
 CREATE TABLE `product_detail_img` (
   `id_pro_detail_img` int(11) NOT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_pro` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product_size`
+--
+
+CREATE TABLE `product_size` (
+  `id_pro_size` int(11) NOT NULL,
+  `size` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `id_pro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -157,16 +199,28 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id_pro`);
 
 --
+-- Chỉ mục cho bảng `product_brand`
+--
+ALTER TABLE `product_brand`
+  ADD PRIMARY KEY (`id_brand`);
+
+--
+-- Chỉ mục cho bảng `product_color`
+--
+ALTER TABLE `product_color`
+  ADD PRIMARY KEY (`id_pro_color`);
+
+--
 -- Chỉ mục cho bảng `product_detail_img`
 --
 ALTER TABLE `product_detail_img`
   ADD PRIMARY KEY (`id_pro_detail_img`);
 
 --
--- Chỉ mục cho bảng `user`
+-- Chỉ mục cho bảng `product_size`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+ALTER TABLE `product_size`
+  ADD PRIMARY KEY (`id_pro_size`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -203,10 +257,28 @@ ALTER TABLE `product`
   MODIFY `id_pro` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `product_brand`
+--
+ALTER TABLE `product_brand`
+  MODIFY `id_brand` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `product_color`
+--
+ALTER TABLE `product_color`
+  MODIFY `id_pro_color` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `product_detail_img`
 --
 ALTER TABLE `product_detail_img`
   MODIFY `id_pro_detail_img` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `product_size`
+--
+ALTER TABLE `product_size`
+  MODIFY `id_pro_size` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
