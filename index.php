@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 =======
 <?php
 session_start();
@@ -31,4 +31,4 @@ if (isset($_GET['act'])) {
 }
 
 include "view/layout/footer.php";
->>>>>>> bd6fdfc6eb6cd8920ff0be02f6fc8d96bb656359
+
