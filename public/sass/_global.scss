@@ -210,6 +210,17 @@ button {
     text-transform: uppercase;
     background-color: $text-sale-color;
   }
+  &-black {
+    text-transform: uppercase;
+    padding: 18px 65px;
+    color: $white-color;
+    background-color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    &:hover {
+      background-color: $green-light-color;
+    }
+  }
 }
 
 .slick {
@@ -238,6 +249,24 @@ button {
       right: 20px;
     }
   }
+  &-news {
+    &-arrow {
+      background-color: #000;
+      font-size: 25px;
+      color: $white-color;
+      width: 50px;
+      height: 50px;
+      &:hover {
+        opacity: 0.65;
+      }
+    }
+    &-prev {
+      left: 65px;
+    }
+    &-next {
+      right: 65px;
+    }
+  }
   &-product {
     &-arrow {
       background-color: #e7e7e7;
@@ -250,11 +279,37 @@ button {
         opacity: 0.65;
       }
     }
-    &-prev {
-      left: 25px;
+    &-new {
+      &-arrow {
+        background-color: #e7e7e7;
+        color: #494949;
+        opacity: 0.35;
+        &:hover {
+          opacity: 0.65;
+        }
+      }
+      &-prev {
+        left: 25px;
+      }
+      &-next {
+        right: 25px;
+      }
     }
-    &-next {
-      right: 25px;
+    &-bestsell {
+      &-arrow {
+        background-color: rgba(0, 0, 0, 0.8);
+        color: $white-color;
+        opacity: 0.35;
+        &:hover {
+          opacity: 0.65;
+        }
+      }
+      &-prev {
+        left: 25px;
+      }
+      &-next {
+        right: 25px;
+      }
     }
   }
 }

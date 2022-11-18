@@ -64,6 +64,15 @@ $(document).ready(function () {
       "<button type='button' class='slick-arrow slick-slider-next slick-slider-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
     dots: true,
   });
+  $(".banner-slide-list").slick({
+    autoplay: true,
+    arrows: true,
+    autoplaySpeed: 3000,
+    prevArrow:
+      "<button type='button' class='slick-arrow slick-slider-prev slick-slider-arrow'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-arrow slick-slider-next slick-slider-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+  });
 });
 
 $(document).ready(function () {
@@ -86,8 +95,33 @@ $(document).ready(function () {
     slidesToScroll: 1,
     speed: 400,
     prevArrow:
-      "<button type='button' class='slick-arrow slick-product-prev slick-product-arrow'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+      "<button type='button' class='slick-product-arrow slick-product-new-prev slick-product-new-arrow'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
     nextArrow:
-      "<button type='button' class='slick-arrow slick-product-next slick-product-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+      "<button type='button' class='slick-product-arrow slick-product-new-next slick-product-new-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+  });
+});
+
+$(document).ready(function () {
+  $(".product-bestsell-list").slick({
+    infinite: true,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    speed: 400,
+    prevArrow:
+      "<button type='button' class='slick-product-arrow slick-product-bestsell-prev slick-product-bestsell-arrow'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-product-arrow slick-product-bestsell-next slick-product-bestsell-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+  });
+  $(".news-list").slick({
+    infinite: true,
+    arrows: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    speed: 400,
+    prevArrow:
+      "<button type='button' class='slick-news-arrow slick-news-prev'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-news-arrow slick-news-next'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
   });
 });
