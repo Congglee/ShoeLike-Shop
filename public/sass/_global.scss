@@ -313,3 +313,30 @@ button {
     }
   }
 }
+
+.page {
+  padding: 12px 0;
+  border-bottom: solid 2px $border-color;
+  margin-bottom: 30px;
+  &-list {
+    display: flex;
+    align-items: baseline;
+    gap: 0 10px;
+  }
+  &-name {
+    color: $text-color;
+    font-size: 12px;
+    line-height: calc(21 / 12);
+    font-weight: 600;
+    &.active {
+      color: $secondary-color;
+    }
+    &.current {
+      font-weight: 700;
+    }
+  }
+  &-icon {
+    font-size: 10px;
+    font-weight: 600;
+  }
+}
