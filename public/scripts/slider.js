@@ -124,4 +124,66 @@ $(document).ready(function () {
     nextArrow:
       "<button type='button' class='slick-news-arrow slick-news-next'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
   });
+  $(".product-same-list").slick({
+    infinite: true,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    speed: 400,
+    prevArrow:
+      "<button type='button' class='slick-product-arrow slick-product-same-prev slick-product-same-arrow'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:
+      "<button type='button' class='slick-product-arrow slick-product-same-next slick-product-same-arrow'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
+  });
 });
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+// function currentSlide(n) {
+//   showSlides((slideIndex = n));
+// }
+
+function showSlides(n) {
+  let i;
+  let proDetailImage = document.getElementsByClassName("product-detail-image");
+  let proSlideImage = document.getElementsByClassName(
+    "product-detail-slide-item"
+  );
+  // let captionText = document.getElementById("caption");
+  if (n > proDetailImage.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = proDetailImage.length;
+  }
+  for (i = 0; i < proDetailImage.length; i++) {
+    proDetailImage[i].style.display = "none";
+  }
+  for (i = 0; i < proSlideImage.length; i++) {
+    proSlideImage[i].className = proSlideImage[i].className.replace(
+      " active",
+      ""
+    );
+  }
+  proDetailImage[slideIndex - 1].style.display = "block";
+  proSlideImage[slideIndex - 1].className += " active";
+  // captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+
+let productDetailSlideImg = document.querySelectorAll(
+  ".product-detail-slide-image"
+);
+for (let i = 0; i < productDetailSlideImg.length; i++) {
+  productDetailSlideImg[i].addEventListener("click", function () {
+    showSlides((slideIndex = i));
+  });
+}
+
+let proDetailImage = document.querySelectorAll(".product-detail-image");
