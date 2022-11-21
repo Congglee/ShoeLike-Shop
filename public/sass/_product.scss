@@ -468,9 +468,15 @@
       &-submit {
         padding: 13px 17px;
         background-color: $secondary-color;
-        color: $text-color;
+        color: $white-color;
         text-transform: capitalize;
         font-size: 15px;
+        border: solid 2px transparent;
+        transition: all 0.4s linear;
+        &:hover {
+          border: solid 2px $text-sale-color;
+          transition: all 0.4s linear;
+        }
       }
     }
   }
