@@ -383,6 +383,18 @@ button {
   margin-bottom: 70px;
 }
 
+.alert-text {
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+.alert-success {
+  color: #6bd918;
+}
+.alert-fail {
+  color: #ea344f;
+}
+
 h1,
 h2,
 h3,

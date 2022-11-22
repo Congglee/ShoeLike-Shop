@@ -359,3 +359,17 @@ button {
     margin-bottom: 70px;
   }
 }
+
+.alert {
+  &-text {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  &-success {
+    color: $secondary-color;
+  }
+  &-fail {
+    color: #ea344f;
+  }
+}
