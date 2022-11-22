@@ -1818,6 +1818,172 @@ h6 {
   margin-bottom: 25px;
 }
 
+.ship-info {
+  margin-bottom: 65px;
+}
+.ship-info-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0 40px;
+}
+.ship-info-user {
+  width: 50%;
+  border-right: solid 1px #e8e9eb;
+  padding-right: 40px;
+}
+.ship-info-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.ship-info-header {
+  display: flex;
+  align-items: center;
+  gap: 0 14px;
+  margin-bottom: 20px;
+}
+.ship-info-image {
+  padding: 14px;
+  background-color: #9b9b9b;
+  color: #fff;
+  border-radius: 5px;
+}
+.ship-info-name {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+}
+.ship-info-name span {
+  color: #86919c;
+  font-size: 14px;
+}
+.ship-info-name a {
+  font-size: 14px;
+  color: #338dbc;
+}
+.ship-info-name a:hover {
+  opacity: 0.8;
+}
+.ship-info-form {
+  display: flex;
+  flex-direction: column;
+}
+.ship-info-form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 9px;
+}
+.ship-info-input {
+  padding: 13px 16px;
+  border: solid 2px #e8e9eb;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: all 0.35s linear;
+}
+.ship-info-input:focus {
+  transition: all 0.35s linear;
+  border-color: #338dbc;
+}
+.ship-info-content {
+  margin-bottom: 25px;
+}
+.ship-info-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.ship-info-submit {
+  padding: 18px;
+  color: #fff;
+  background-color: #338dbc;
+  font-size: 15px;
+  border-radius: 5px;
+}
+.ship-info-submit:hover {
+  opacity: 0.8;
+}
+.ship-info-return {
+  font-size: 14px;
+  color: #338dbc;
+  font-weight: 600;
+}
+.ship-info-bill {
+  width: 50%;
+}
+
+.bill-header {
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.bill-image {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: solid 2px #eee;
+}
+.bill-product {
+  padding-left: 14px;
+  flex: 1;
+}
+.bill-product h3 {
+  color: #13283f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2857142857;
+  margin-bottom: 5px;
+}
+.bill-product span {
+  font-size: 13px;
+  color: #86919c;
+}
+.bill-price {
+  flex-shrink: 0;
+}
+.bill-price span {
+  color: #86919c;
+  font-size: 14px;
+  line-height: 1.2857142857;
+}
+.bill-content {
+  padding: 28px 0;
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 22px;
+}
+.bill-content-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bill-content-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+.bill-content-item span {
+  color: #86919c;
+  font-size: 14px;
+}
+.bill-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bill-total-title {
+  color: #13283f;
+  font-size: 16px;
+}
+.bill-total-unit {
+  color: #86919c;
+  font-size: 14px;
+}
+.bill-total-money {
+  padding-left: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #13283f;
+}
+
 .footer-top {
   background-color: #181938;
   margin-bottom: 55px;
