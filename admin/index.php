@@ -1,59 +1,53 @@
-<<<<<<< HEAD
 
 
-<?php
-session_start();
-ob_start();
-
-include "global.php";
-
-include "model/category.php";
-include "model/comment.php";
-include "model/order.php";
-include "model/product.php";
-include "model/stat.php"; // thống kê 
-include "model/user.php";
-
-include "view/layout/header.php";
-
-if (isset($_GET['act'])) {
-  $act = $_GET['act'];
-  switch ($act) {
-      // case "":
-      // code ....
-      // break;
-
-    default:
-      include "view/layout/home.php";
-      break;
-  }
-} else {
-  include "view/layout/home.php";
-}
-
-include "view/layout/footer.php";
-
-=======
 <?php
 // session_start();
 
-if(isset($_SESSION['id_user'])&&($_SESSION['id_user']['role'])==1){
+// if(isset($_SESSION['id_user'])&&($_SESSION['id_user']['role'])==1){
 
     include "../model/pdo.php";
-    include "header.php";
     include "../model/category.php";
     //Controller
+    include "../model/product.php";
+    include "header.php";
 
     if(isset($_GET['act'])){
         $act = $_GET['act'];
         switch ($act) {
+            case 'list_pro':
+                $list_pro = show_pro();
+                include "product/list_pro.php";
+                break;
+            case 'add_pro':
+                if(isset($_POST['submit'])&&($_POST['submit'])){
+                    $name = $_POST['name'];
+                    $price = $_POST['price'];
+                    $price_sale = $_POST['price_sale'];
+                    $description = $_POST['description'];
+
+                    $image = $_FILES['image']['name'];
+                    $target_dir = "upload/";
+                    $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)){
+                        // echo "The file ". htmlspecialchars( basename( $_FILES["image"]["name"])). " Upload thành công";
+                      } else {
+                        // echo "Sorry, there was an error uploading your file.";
+                      }
+                add_pro($name,$image,$price,$price_sale,$description);
+            }
+            include "product/add_pro.php";
+            break;
+
+            case 'checkout':
+                $list_pro = show_pro();
+                include "thanhtoan/thanhtoan.php";
+                break;
+        
             case 'add_cate':
                 // Thêm danh mục
                 // Kiểm tra xem người dùng có nhấn vào nút thêm mới không
-                if(isset($_POST['add_cate'])&&($_POST['add_cate'])){
-
-                    $name = $_POST['name'];
-
+               
                     // Kiểm tra biến tên danh mục
                     if(!$name=""){
                         // Nếu tên danh mục khác rỗng, gọi hàm thêm danh mục
@@ -65,7 +59,7 @@ if(isset($_SESSION['id_user'])&&($_SESSION['id_user']['role'])==1){
                         // Đưa ra thông báo sau
                         $alert = "Chưa nhập tên danh mục. Vui lòng nhập tên danh mục";
                     }
-                }
+                
                 include "category/add_cate.php";
                 break;
             case 'delete_cate':
@@ -105,9 +99,12 @@ if(isset($_SESSION['id_user'])&&($_SESSION['id_user']['role'])==1){
 
     include "footer.php";
 
-}else{
-    header('Location: index.php');
-}
+// }else{
+//     // header('Location: index.php');
+// }
 
 ?>
->>>>>>> 177a4b31779c4808b80f61a7bacce3119c54a5cf
+
+
+
+

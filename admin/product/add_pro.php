@@ -56,13 +56,17 @@
             </div>
             <div class="box content">
                 <label for="">GENDER : </label>
-                <br>
-                <select name="" id=""></select>
+            <input type="radio" name="gender" id="" value="Nam">Nam
+            <input type="radio" name="gender" id="" value="Nữ">Nữ
+
             </div>
             <div class="box content">
                 <label for="">DESCRIPTION : </label>
                 <br>
+                <textarea name="description" id="" cols="30" rows="10"></textarea>
+                <br>
             </div>
+            <input type="submit" name="sumit" value="thêm">
         </form>
     </div>
 </div>

@@ -45,8 +45,32 @@
                     extract($pro);
                     $edit_pro = "index.php?act=edit_pro&id=".$id_pro;
                     $delete_pro = "index.php?act=delete_pro&id".$id_pro;
-                    $img = "";
+                    $img = "../upload/".$image;
+
+                    echo '
+                        <tr>
+                        <th></th>
+                        <th>'.$name.'</th>
+                        <th><img src="'.$image.'"></img></th>
+                        <th>'.$price.'</th>
+                        <th>'.$price_sale.'</th>
+                        <th>SPECIAL</th>
+                        <th>VIEWS</th>
+                        <th>GENDER</th>
+                        <th>'.$description.'</th>
+                        <th>ID BRAND</th>
+                        <th>ID PRODUCT COLOR</th>
+                        <th>ID PRODUCT SIZE</th>
+                        <th>ID CATE</th>
+    
+                </tr>
+                    
+                    
+                    
+                    ';
                 }
+                
+                
 
             ?>
         </table>
