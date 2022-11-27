@@ -102,12 +102,21 @@
       margin-bottom: 48px;
     }
     &-submit {
+      display: inline-block;
       padding: 12px 10px;
       background-color: $secondary-color;
-      font-size: 16px;
       text-transform: capitalize;
+      font-size: 16px;
+      text-align: center;
       color: $text-color;
-      &:hover {
+      a {
+        font-size: 16px;
+        text-align: center;
+        text-transform: capitalize;
+        color: $text-color;
+      }
+      &:hover,
+      &:hover a {
         background-color: $green-light-color;
         color: $border-color;
       }

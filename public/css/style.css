@@ -606,6 +606,9 @@ h6 {
 .slick-active button {
   background-color: #6bd918;
 }
+.slick-track {
+  margin: 0;
+}
 
 .banner-slide {
   padding-bottom: 42px;
@@ -826,12 +829,29 @@ h6 {
   margin-bottom: 8px;
 }
 .product-detail-price {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0 7px;
+}
+.product-detail-price-sale {
+  color: #ec3d17;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.product-detail-price-old {
+  color: #86919c;
+  text-decoration: line-through;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6470588235;
+}
+.product-detail-price-new {
   color: #569d1b;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.75;
-  display: inline-block;
-  margin-bottom: 18px;
 }
 .product-detail-color {
   margin-bottom: 8px;
@@ -871,6 +891,7 @@ h6 {
   transition: all 0.35s linear;
   background-color: #f7f8fa;
   font-size: 12px;
+  text-transform: uppercase;
   font-weight: 700;
   color: #13283f;
 }
@@ -1245,9 +1266,21 @@ h6 {
   margin-bottom: 18px;
   transition: all 0.45s linear;
 }
+.products-images {
+  width: 100%;
+  height: 100%;
+}
+.products-images img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
 .products-content {
   padding: 0 10px 10px 10px;
   height: 115px;
+}
+.products-title {
+  flex: 1;
 }
 .products-title a {
   line-height: 1.4285714286;
@@ -1265,7 +1298,8 @@ h6 {
 }
 .products-cost {
   margin-bottom: 14px;
-  flex: 1;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 .products-info {
   text-align: right;
@@ -1336,7 +1370,6 @@ h6 {
   color: #9b9b9b;
   font-weight: 550;
   font-size: 14px;
-  line-height: 1.7857142857;
 }
 
 .gender {
@@ -1789,13 +1822,21 @@ h6 {
   margin-bottom: 48px;
 }
 .cart-checkout-submit {
+  display: inline-block;
   padding: 12px 10px;
   background-color: #6bd918;
+  text-transform: capitalize;
   font-size: 16px;
+  text-align: center;
+  color: #13283f;
+}
+.cart-checkout-submit a {
+  font-size: 16px;
+  text-align: center;
   text-transform: capitalize;
   color: #13283f;
 }
-.cart-checkout-submit:hover {
+.cart-checkout-submit:hover, .cart-checkout-submit:hover a {
   background-color: #78e723;
   color: #e8e9eb;
 }
@@ -1905,10 +1946,10 @@ h6 {
   margin-top: 20px;
 }
 .ship-info-submit {
-  padding: 18px;
   color: #fff;
-  background-color: #338dbc;
   font-size: 15px;
+  padding: 18px;
+  background-color: #338dbc;
   border-radius: 5px;
 }
 .ship-info-submit:hover {
@@ -1922,12 +1963,99 @@ h6 {
 .ship-info-bill {
   width: 50%;
 }
+.ship-info-confirm {
+  width: 60%;
+}
+.ship-info-confirm-bill {
+  width: 40%;
+}
+.ship-info-confirm-list {
+  padding: 30px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+.ship-info-confirm-item {
+  padding: 17px;
+  background-color: #e8e9eb;
+}
+.ship-info-confirm-submit {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  padding: 14px 25px;
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  background-color: #ffe178;
+  border: solid 1px transparent;
+}
+.ship-info-confirm-submit:hover {
+  border: solid 1px #569d1b;
+}
+.ship-info-contact-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0 20px;
+}
+.ship-info-contact-item:not(:last-child) {
+  border-bottom: solid 1px #86919c;
+  padding-bottom: 16px;
+  margin-bottom: 13px;
+}
+.ship-info-contact-item span {
+  color: #737377;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.ship-info-contact-item a {
+  flex-shrink: 0;
+  margin-left: auto;
+  font-size: 12px;
+  color: #13283f;
+}
+.ship-info-contact-title {
+  width: 100px;
+}
+.ship-info-contact-content {
+  flex: 1;
+}
+.ship-info-method-shipping h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.ship-info-method-shipping-radio label {
+  font-size: 14px;
+  color: #13283f;
+}
+.ship-info-method-payment h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.ship-info-method-payment-item {
+  position: relative;
+}
+.ship-info-method-payment-item select {
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  padding: 8px 16px;
+  border: solid 2px #78e723;
+  cursor: pointer;
+  background-color: #78e723;
+}
 
 .bill-header {
   border-bottom: solid 1px #ccc;
   padding-bottom: 15px;
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
 .bill-image {
   width: 65px;
@@ -1938,6 +2066,7 @@ h6 {
 }
 .bill-product {
   padding-left: 14px;
+  width: 275px;
   flex: 1;
 }
 .bill-product h3 {
@@ -1960,7 +2089,7 @@ h6 {
   line-height: 1.2857142857;
 }
 .bill-content {
-  padding: 28px 0;
+  padding: 13px 0 28px 0;
   border-bottom: solid 1px #ccc;
   margin-bottom: 22px;
 }

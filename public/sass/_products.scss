@@ -124,11 +124,21 @@
     margin-bottom: 18px;
     transition: all 0.45s linear;
   }
+  &-images {
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+    }
+  }
   &-content {
     padding: 0 10px 10px 10px;
     height: 115px;
   }
   &-title {
+    flex: 1;
     a {
       line-height: calc(20 / 14);
       font-size: 14px;
@@ -146,7 +156,8 @@
   }
   &-cost {
     margin-bottom: 14px;
-    flex: 1;
+    margin-top: auto;
+    flex-shrink: 0;
   }
   &-info {
     text-align: right;
@@ -218,7 +229,7 @@
       color: $gray-light-color;
       font-weight: 550;
       font-size: 14px;
-      line-height: calc(25 / 14);
+      // line-height: calc(25 / 14);
     }
   }
 }

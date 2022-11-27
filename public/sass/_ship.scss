@@ -73,10 +73,10 @@
       margin-top: 20px;
     }
     &-submit {
-      padding: 18px;
       color: $white-color;
-      background-color: #338dbc;
       font-size: 15px;
+      padding: 18px;
+      background-color: #338dbc;
       border-radius: 5px;
       &:hover {
         opacity: 0.8;
@@ -90,6 +90,102 @@
     &-bill {
       width: 50%;
     }
+    &-confirm {
+      width: 60%;
+      &-bill {
+        width: 40%;
+      }
+      &-list {
+        padding: 30px;
+        background-color: #f9f9f9;
+        margin-bottom: 20px;
+      }
+      &-item {
+        padding: 17px;
+        background-color: $border-color;
+      }
+      &-submit {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        padding: 14px 25px;
+        color: #333;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        background-color: #ffe178;
+        border: solid 1px transparent;
+        &:hover {
+          border: solid 1px $green-dark-color;
+        }
+      }
+    }
+    &-contact {
+      &-item {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0 20px;
+        &:not(:last-child) {
+          border-bottom: solid 1px $heading-color-secondary;
+          padding-bottom: 16px;
+          margin-bottom: 13px;
+        }
+        span {
+          color: #737377;
+          font-size: 15px;
+          line-height: 1.4;
+        }
+        a {
+          flex-shrink: 0;
+          margin-left: auto;
+          font-size: 12px;
+          color: $text-color;
+        }
+      }
+      &-title {
+        width: 100px;
+      }
+      &-content {
+        flex: 1;
+      }
+    }
+    &-method {
+      &-shipping {
+        h3 {
+          font-size: 18px;
+          color: #333;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        &-radio {
+          label {
+            font-size: 14px;
+            color: $text-color;
+          }
+        }
+      }
+      &-payment {
+        h3 {
+          font-size: 18px;
+          color: #333;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        &-item {
+          position: relative;
+          select {
+            color: $white-color;
+            font-family: $font;
+            font-size: 15px;
+            padding: 8px 16px;
+            border: solid 2px $green-light-color;
+            cursor: pointer;
+            background-color: $green-light-color;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -99,6 +195,7 @@
     padding-bottom: 15px;
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
   }
   &-image {
     width: 65px;
@@ -109,6 +206,7 @@
   }
   &-product {
     padding-left: 14px;
+    width: 275px;
     flex: 1;
     h3 {
       color: $text-color;
@@ -131,7 +229,7 @@
     }
   }
   &-content {
-    padding: 28px 0;
+    padding: 13px 0 28px 0;
     border-bottom: solid 1px #ccc;
     margin-bottom: 22px;
     &-item {

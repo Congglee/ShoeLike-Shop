@@ -152,10 +152,8 @@ function plusSlides(n) {
 
 function showSlides(n) {
   let i;
-  let proDetailImage = document.getElementsByClassName("product-detail-image");
-  let proSlideImage = document.getElementsByClassName(
-    "product-detail-slide-item"
-  );
+  let proDetailImage = document.querySelectorAll(".product-detail-image");
+  let proSlideImage = document.querySelectorAll(".product-detail-slide-item");
   // let captionText = document.getElementById("caption");
   if (n > proDetailImage.length) {
     slideIndex = 1;

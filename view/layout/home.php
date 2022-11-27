@@ -170,7 +170,7 @@
   </section>
 
   <?php
-  include "product_bestsell.php";
+  include "product_feature.php";
   ?>
 
   <?php

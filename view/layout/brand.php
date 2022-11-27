@@ -4,12 +4,20 @@
       <h2 class="heading">THƯƠNG HIỆU NỔI BẬT</h2>
     </div>
     <div class="brand-list">
-      <div class="brand-item">
-        <a href="#" class="brand-logo">
-          <img src="././public/images/nike-brand.png" alt="" />
-        </a>
-      </div>
-      <div class="brand-item">
+      <?php
+      foreach ($list_brand as $lb) {
+        extract($lb);
+        $brand_image = $img_path_view . $logo;
+      ?>
+        <div class="brand-item">
+          <a href="#" class="brand-logo">
+            <img src="<?= $brand_image ?>" alt="" />
+          </a>
+        </div>
+      <?php
+      }
+      ?>
+      <!-- <div class="brand-item">
         <a href="#" class="brand-logo">
           <img src="././public/images/columbia-brand.webp" alt="" />
         </a>
@@ -48,7 +56,7 @@
         <a href="#" class="brand-logo">
           <img src="././public/images/hoka-brand.png" alt="" />
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
