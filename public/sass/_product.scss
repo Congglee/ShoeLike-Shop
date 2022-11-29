@@ -190,12 +190,32 @@
       margin-bottom: 8px;
     }
     &-price {
-      color: $green-dark-color;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: calc(28 / 16);
-      display: inline-block;
       margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 0 7px;
+      &-sale {
+        color: $text-sale-color;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: calc(28 / 16);
+      }
+      &-old {
+        color: $heading-color-secondary;
+        text-decoration: line-through;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: calc(28 / 17);
+      }
+      &-new {
+        color: $green-dark-color;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: calc(28 / 16);
+      }
+      // display: inline-block;
+      // color: $green-dark-color;
+      // margin-bottom: 18px;
     }
     &-color {
       margin-bottom: 8px;
@@ -236,6 +256,7 @@
         transition: all 0.35s linear;
         background-color: #f7f8fa;
         font-size: 12px;
+        text-transform: uppercase;
         font-weight: 700;
         color: $text-color;
       }

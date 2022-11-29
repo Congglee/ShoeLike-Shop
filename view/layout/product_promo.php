@@ -4,25 +4,35 @@
       <h2 class="heading">Khuyến mãi có hạn</h2>
     </div>
     <div class="product-promo-list">
-      <div class="product-promo-item product-item">
-        <div class="product-promo-image product-image">
-          <a href="#" class="product-promo-img">
-            <img src="././public/images/product-10.webp" alt="" />
-          </a>
-          <div class="product-promo-tag product-tag">-50%</div>
-        </div>
-        <div class="product-promo-content product-content">
-          <span class="product-promo-brand product-brand">New Balance</span>
-          <h3 class="product-promo-title product-title">
-            <a href="#">Giày Chạy Bộ Nam New Balance Fuelcell Racer</a>
-          </h3>
-          <div class="product-cost">
-            <span class="product-bestsell-price product-price product-price-sale">2.248.000₫</span>
-            <span class="product-price-old"> 4.495.000₫ </span>
+      <?php
+      foreach ($list_pro_promo as $lpp) {
+        extract($lpp);
+        $link_product = "index.php?act=product_detail&id_pro=" . $id_pro;
+        $product_promo_img = $img_path_view . $image;
+        $percent_discount = number_format(($price_sale - $price) / $price * 100);
+      ?>
+        <div class="product-promo-item product-item">
+          <div class="product-promo-image product-image">
+            <a href="<?= $link_product ?>" class="product-promo-img">
+              <img src="<?= $product_promo_img ?>" alt="" />
+            </a>
+            <div class="product-promo-tag product-tag"><?= $percent_discount ?>%</div>
+          </div>
+          <div class="product-promo-content product-content">
+            <span class="product-promo-brand product-brand"><?= $brand_name ?></span>
+            <h3 class="product-promo-title product-title">
+              <a href="<?= $link_product ?>"><?= $pro_name ?></a>
+            </h3>
+            <div class="product-cost">
+              <span class="product-bestsell-price product-price product-price-sale"><?= number_format($price_sale, 0, ",", ".") ?>đ</span>
+              <span class="product-price-old"> <?= number_format($price, 0, ",", ".")  ?>đ</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="product-promo-item product-item">
+      <?php
+      }
+      ?>
+      <!-- <div class="product-promo-item product-item">
         <div class="product-promo-image product-image">
           <a href="#" class="product-promo-img">
             <img src="././public/images/product-11.webp" alt="" />
@@ -149,7 +159,7 @@
             <span class="product-price-old"> 1.900.000₫ </span>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="product-promo-link">

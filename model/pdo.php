@@ -31,6 +31,20 @@ function pdo_execute($sql)
   }
 }
 
+function pdo_execute_lastInsertId($sql)
+{
+  try {
+    $conn = pdo_get_connection();
+    $stmt = $conn->prepare($sql); // Tạo đối tượng statement để chuẩn bị thực thi sau đó bởi hàm execute
+    $stmt->execute();  // Thực thi câu truy vấn
+    return $conn->lastInsertId();
+  } catch (PDOException $e) {
+    throw $e;
+  } finally {
+    unset($conn);
+  }
+}
+
 // ===================Truy vấn nhiều dữ liệu=======================//
 function pdo_query($sql)
 {

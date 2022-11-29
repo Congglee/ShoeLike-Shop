@@ -125,5 +125,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="././public/scripts/slider.js"></script>
 <script src="././public/scripts/tab.js"></script>
+<script src="././public/scripts/product_tab.js"></script>
 
 </html>

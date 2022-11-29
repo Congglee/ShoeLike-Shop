@@ -4,7 +4,7 @@
       <div class="signup-container form-content">
         <div class="signup-header form-header">
           <h3 class="form-heading signup-heading">Đăng ký</h3>
-          <span class="form-caption sigin-caption">Đã có tài khoản?<a href="#"> Đăng nhập</a></span>
+          <span class="form-caption sigin-caption">Đã có tài khoản?<a href="index.php?act=signin"> Đăng nhập</a></span>
           <div class="form-social signup-social">
             <div class="form-social-item sigin-social-item">
               <img src="././public/images/fb.png" alt="" />

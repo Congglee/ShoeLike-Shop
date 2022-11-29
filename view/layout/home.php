@@ -23,6 +23,11 @@
         <img src="././public/images/slider-03.webp" alt="" />
       </a>
     </div>
+    <div class="slider-item">
+      <a href="#" class="slider-image">
+        <img src="././public/images/slider-04.webp" alt="" />
+      </a>
+    </div>
     <!-- </div> -->
     <!-- </div> -->
     <!-- <i class="fa fa-angle-right slider-next"></i> -->
@@ -170,7 +175,7 @@
   </section>
 
   <?php
-  include "product_bestsell.php";
+  include "product_feature.php";
   ?>
 
   <?php

@@ -55,6 +55,17 @@
         font-size: 12px;
       }
     }
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: 0 8px;
+      img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+        border-radius: 100rem;
+      }
+    }
   }
   &-content {
     display: flex;

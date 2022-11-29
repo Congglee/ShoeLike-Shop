@@ -365,6 +365,10 @@ button {
     margin-top: 20px;
     font-size: 16px;
     text-align: center;
+    line-height: 1.2;
+  }
+  &-left {
+    text-align: left;
   }
   &-success {
     color: $secondary-color;

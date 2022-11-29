@@ -40,21 +40,38 @@
             <a href="#" class="header-auth-text sign-up-offer">
               ĐĂNG KÝ VÀ NHẬN 100.000 VNĐ
             </a>
-
-
             <div class="dropdow">
-              <a href="#" class="header-auth-text account">Tài khoản
-                <i class="header-auth-text fa-solid fa-chevron-down"></i></a>
               <?php
               if (isset($_SESSION['user'])) {
                 extract($_SESSION['user']);
+                $user_image = $img_path_view . $image;
               ?>
+                <?php
+                if (is_file($user_image)) {
+                  echo "<div class='header-auth-info'>
+                          <img src='$user_image' class='header-auth-image'>
+                          <a href='index.php?act=user_info' class='header-auth-text account'>Tài khoản
+                            <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                          </a>
+                        </div>";
+                } else {
+                  echo "<a href='index.php?act=user_info' class='header-auth-text account'>Tài khoản
+                          <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                        </a>";
+                }
+                ?>
                 <ul class="dropdow-list">
                   <?php
                   if ($role == 0) {
                   ?>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Hello <?= $id_user ?></a>
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Hello <?= $id_user ?></a>
+                    </li>
+                    <li class="dropdow-item">
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Tài khoản</a>
+                    </li>
+                    <li class="dropdow-item">
+                      <a href="index.php?act=user_bill" class="dropdow-link signup">Đơn hàng của tôi</a>
                     </li>
                     <li class="dropdow-item">
                       <a href="index.php?act=signout" class="dropdow-link signin">Đăng xuất</a>
@@ -63,10 +80,10 @@
                   } else {
                   ?>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Hello <?= $id_user ?></a>
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Hello <?= $id_user ?></a>
                     </li>
                     <li class="dropdow-item">
-                      <a href="index.php?act=signup" class="dropdow-link signup">Đăng nhập</a>
+                      <a href="./admin/index.php" class="dropdow-link signup">Quản lý website</a>
                     </li>
                     <li class="dropdow-item">
                       <a href="index.php?act=signout" class="dropdow-link signin">Đăng xuất</a>
@@ -78,6 +95,9 @@
               <?php
               } else {
               ?>
+                <a href='#' class='header-auth-text account'>Tài khoản
+                  <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                </a>
                 <ul class="dropdow-list">
                   <li class="dropdow-item">
                     <a href="index.php?act=signup" class="dropdow-link signup">Đăng ký</a>
@@ -112,10 +132,23 @@
             </div>
 
             <div class="header-cart">
-              <a href="#" class="header-cart-submit button button-white">
+              <?php
+              if (isset($_SESSION['cart']) && ($_SESSION['cart'] > 0)) {
+                echo " <a href='index.php?act=cart' class='header-cart-submit button        button-white'>
+                       <i class='fa-solid fa-cart-shopping header-cart-icon'></i>
+                      Giỏ hàng (" . count($_SESSION['cart']) . ")
+                     </a>";
+              } else {
+                echo "<a href='index.php?act=cart' class='header-cart-submit button button-white'>
+                <i class='fa-solid fa-cart-shopping header-cart-icon'></i>
+                Giỏ hàng (0)
+              </a>";
+              }
+              ?>
+              <!-- <a href="index.php?act=cart" class="header-cart-submit button button-white">
                 <i class="fa-solid fa-cart-shopping header-cart-icon"></i>
                 Giỏ hàng (0)
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -127,31 +160,23 @@
             </li>
             <li class="menu-item">
               <div class="dropdow-menu">
-                <a href="./product.html" class="menu-link">Giày <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="index.php?act=products" class="menu-link">Giày <i class="fa-solid fa-chevron-down"></i></a>
                 <div class="dropdow-menu-list">
                   <div class="dropdow-menu-category">
                     <div class="dropdow-menu-info">
                       <h2 class="dropdow-menu-title">Giày Dép</h2>
-                      <a href="./product.html" class="dropdow-menu-link">Xem tất cả</a>
+                      <a href="index.php?act=products" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Sản phẩm mới</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày thời trang</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày chạy bộ</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày luyện tập</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày bóng rổ</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày bóng đá</a>
-                    </div>
+                    <?php
+                    foreach ($list_cate as $lc) {
+                      extract($lc);
+                    ?>
+                      <div class="dropdow-menu-item">
+                        <a href="#"><?= $cate_name ?></a>
+                      </div>
+                    <?php
+                    }
+                    ?>
                   </div>
                   <div class="dropdow-menu-images">
                     <a href="#" class="dropdow-menu-image">
@@ -173,24 +198,16 @@
                       <h2 class="dropdow-menu-title">Giày Dép</h2>
                       <a href="#" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Sản phẩm mới</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày thời trang</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày chạy bộ</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày luyện tập</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày bóng rổ</a>
-                    </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">Giày bóng đá</a>
-                    </div>
+                    <?php
+                    foreach ($list_cate as $lc) {
+                      extract($lc);
+                    ?>
+                      <div class="dropdow-menu-item">
+                        <a href="#"><?= $cate_name ?></a>
+                      </div>
+                    <?php
+                    }
+                    ?>
                   </div>
                   <div class="dropdow-menu-images">
                     <a href="#" class="dropdow-menu-image">
