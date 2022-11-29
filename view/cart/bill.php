@@ -18,6 +18,7 @@
           <h4 class="ship-info-title">Thông tin giao hàng</h4>
           <?php
           if (isset($_SESSION['user'])) {
+            $id_user = $_SESSION['user']['id_user'];
             $name = $_SESSION['user']['name'];
             $address = $_SESSION['user']['address'];
             $email = $_SESSION['user']['email'];
@@ -58,25 +59,12 @@
                   <input type="text" class="ship-info-input" name="name" placeholder="Họ và tên" value="<?= $name ?>" required />
                 </div>
                 <div class="ship-info-form-group">
-                  <input type="email" class="ship-info-input" name="email" placeholder="Email" value="<?= $email ?>" required />
+                  <input type="email" class="ship-info-input" name="email" placeholder="Email" value="<?= $email ?>" disabled />
+                  <input type="hidden" class="ship-info-input" name="email" placeholder="Email" value="<?= $email ?>" />
                 </div>
                 <div class="ship-info-form-group">
                   <input type="text" class="ship-info-input" name="phone" placeholder="Số điện thoại" value="<?= $phone ?>" required />
-                </div>
-              <?php
-              } else {
-              ?>
-                <div class="ship-info-form-group">
-                  <input type="text" class="ship-info-input" name="address" placeholder="Địa chỉ" required />
-                </div>
-                <div class="ship-info-form-group">
-                  <input type="text" class="ship-info-input" name="name" placeholder="Họ và tên" required />
-                </div>
-                <div class="ship-info-form-group">
-                  <input type="email" class="ship-info-input" name="email" placeholder="Email" required />
-                </div>
-                <div class="ship-info-form-group">
-                  <input type="text" class="ship-info-input" name="phone" placeholder="Số điện thoại" required />
+                  <input type="hidden" class="ship-info-input" name="id_user" value="<?= $id_user ?>" />
                 </div>
               <?php
               }
@@ -102,6 +90,7 @@
               <div class="bill-product">
                 <h3><?= $cart[1] ?></h3>
                 <span>Số lượng: <?= $cart[4] ?></span>
+                <span>- Size: <?= $cart[6] ?></span>
               </div>
               <div class="bill-price">
                 <span><?= number_format($into_money, "0", ",", ".") ?>đ</span>

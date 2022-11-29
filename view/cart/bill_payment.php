@@ -19,51 +19,20 @@
             <div class="ship-info-contact-list ship-info-confirm-item">
               <?php
               if (isset($_SESSION['user'])) {
-                $name = $_SESSION['user']['name'];
-                $address = $_SESSION['user']['address'];
                 $email = $_SESSION['user']['email'];
-                $image = $_SESSION['user']['image'];
-                $phone = $_SESSION['user']['phone'];
+                $address = $_SESSION['user']['address'];
               ?>
-                <input type="hidden" name="name" value="<?= $name ?>">
-                <input type="hidden" name="address" value="<?= $address ?>">
-                <input type="hidden" name="email" value="<?= $email ?>">
-                <input type="hidden" name="phone" value="<?= $phone ?>">
-
                 <div class="ship-info-contact-item">
                   <span class="ship-info-contact-title">Liên hệ</span>
                   <span class="ship-info-contact-content"><?= $email ?></span>
-                  <a href="#">Thay đổi</a>
+                  <a href="index.php?act=user_info">Thay đổi</a>
                 </div>
                 <div class="ship-info-contact-item">
                   <span class="ship-info-contact-title">Vận chuyển tới</span>
                   <span class="ship-info-contact-content">
-                    <?= $address ?></span>
-                  <a href="#">Thay đổi</a>
-                </div>
-              <?php
-                // $name = "";
-                // $address = "";
-                // $email = "";
-                // $image = "";
-                // $phone = "";
-              } else {
-              ?>
-                <input type="hidden" name="name" value="<?= $order_name ?>">
-                <input type="hidden" name="address" value="<?= $order_address ?>">
-                <input type="hidden" name="email" value="<?= $order_email ?>">
-                <input type="hidden" name="phone" value="<?= $order_phone ?>">
-
-                <div class="ship-info-contact-item">
-                  <span class="ship-info-contact-title">Liên hệ</span>
-                  <span class="ship-info-contact-content"><?= $order_email ?></span>
-                  <a href="#">Thay đổi</a>
-                </div>
-                <div class="ship-info-contact-item">
-                  <span class="ship-info-contact-title">Vận chuyển tới</span>
-                  <span class="ship-info-contact-content">
-                    <?= $order_address ?></span>
-                  <a href="#">Thay đổi</a>
+                    <?= $address ?>
+                  </span>
+                  <a href="index.php?act=bill">Thay đổi</a>
                 </div>
               <?php
               }
@@ -74,7 +43,7 @@
             <h3>Phương thức vận chuyển</h3>
             <div class="ship-info-method-shipping-list ship-info-confirm-item">
               <div class="ship-info-method-shipping-item">
-                <div class="ship-info-method-shipping-radio">
+                <div class="ship-info-method-radio2">
                   <input type="radio" name="" id="ship_radio" checked />
                   <label for="ship_radio">FREESHIP</label>
                 </div>
@@ -85,13 +54,18 @@
           <div class="ship-info-method-payment ship-info-confirm-list">
             <h3>Phương thức thanh toán</h3>
             <div class="ship-info-method-payment-list ship-info-confirm-item">
-              <div class="ship-info-method-payment-item">
-                <select name="payment" id="">
-                  <option value="1" selected>
-                    Chuyển khoản ngân hàng: MBBANK
-                  </option>
-                  <option value="2">Thanh toán khi nhận hàng</option>
-                </select>
+              <div class="ship-info-method-radio">
+                <input type="radio" name="payment" id="mbbank" value="1" checked>
+                <label for="mbbank">Chuyển khoản ngân hàng: MB-Bank - Ngân hàng quân đội</label>
+              </div>
+              <span>Số tài khoản: 0371000510585</span>
+              <span>Tên tài khoản: LE THANH CONG</span>
+              <span>Nội dung chuyển khoản: PAYSHOELIKE - tài khoản email</span>
+            </div>
+            <div class="ship-info-method-payment-list ship-info-confirm-item">
+              <div class="ship-info-method-radio2">
+                <input type="radio" name="payment" id="tt" value="2">
+                <label for="tt">Thanh toán khi nhận hàng</label>
               </div>
             </div>
           </div>
@@ -114,6 +88,7 @@
               <div class="bill-product">
                 <h3><?= $cart[1] ?></h3>
                 <span>Số lượng: <?= $cart[4] ?></span>
+                <span>- Size: <?= $cart[6] ?></span>
               </div>
               <div class="bill-price">
                 <span><?= number_format($into_money, "0", ",", ".") ?>đ</span>
@@ -130,7 +105,7 @@
             </div>
             <div class="bill-content-item">
               <span>Shipping</span>
-              <span> </span>
+              <span>FreeShip </span>
             </div>
           </div>
           <div class="bill-bottom">
@@ -142,6 +117,10 @@
           </div>
         </div>
 
+        <input type="hidden" name="name" value="<?= $order_name ?>">
+        <input type="hidden" name="email" value="<?= $order_email ?>">
+        <input type="hidden" name="address" value="<?= $order_address ?>">
+        <input type="hidden" name="phone" value="<?= $order_phone ?>">
         <input type="hidden" name="total_order" value="<?= $total ?>">
       </form>
     </div>

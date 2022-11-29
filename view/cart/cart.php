@@ -2,9 +2,9 @@
   <section class="page">
     <div class="container">
       <div class="page-list">
-        <a href="#" class="page-name active">Trang chủ</a>
+        <a href="index.php" class="page-name active">Trang chủ</a>
         <i class="fa fa-angle-right page-icon"></i>
-        <a href="#" class="page-name current">Giỏ hàng của bạn</a>
+        <a href="index.php?act=cart" class="page-name current">Giỏ hàng của bạn</a>
       </div>
     </div>
   </section>
@@ -37,7 +37,10 @@
                 <tr>
                   <td class="cart-info">
                     <img src="<?= $cart_image ?>" alt="" />
-                    <span><?= $cart[1] ?></span>
+                    <div class="cart-info-text">
+                      <span><?= $cart[1] ?></span>
+                      <span>Size: <?= $cart[6] ?></span>
+                    </div>
                   </td>
                   <td class="cart-price"><?= number_format($cart[3], "0", ",", ".") ?>đ</td>
                   <td class="cart-quantity">
@@ -90,7 +93,7 @@
           </table>
           <div class="cart-checkout-button">
             <button class="cart-checkout-submit">
-              <a href="#">Tiếp tục mua hàng</a>
+              <a href="index.php?act=products">Tiếp tục mua hàng</a>
             </button>
             <button class="cart-checkout-submit" name="btn_update_cart">
               <a href="#">Cập nhật giỏ hàng</a>
@@ -120,7 +123,30 @@
                 <h3>Tổng cộng</h3>
                 <h3><?= number_format($total, "0", ",", ".") ?>đ</h3>
               </div>
-              <a href="index.php?act=bill" class="cart-checkout-submit full">Thanh toán</a>
+
+              <?php
+              if (isset($_SESSION['user'])) {
+                if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
+              ?>
+                  <a href='index.php?act=bill' class='cart-checkout-submit full'>Thanh toán</a>
+                <?php
+                } else {
+                ?>
+                  <form action='index.php?act=cart' method='post'>
+                    <button class='cart-checkout-submit full' name='btn_checkout_submit'>Thanh toán</button>
+                  </form>
+                  <?php
+                  if (isset($message) && ($message != "")) {
+                    echo "<h4 class='alert-text $alert'>$message</h4>";
+                  }
+                  ?>
+              <?php
+                }
+              } else {
+                echo "<a href='index.php?act=signin' class='cart-checkout-submit full'>Đăng nhập</a>";
+                echo "<h4 class='alert-text alert-fail'>Quý khách vui lòng đăng nhập để thanh toán</h4>";
+              }
+              ?>
             </div>
           </div>
         </div>

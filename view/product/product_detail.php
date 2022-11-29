@@ -75,7 +75,7 @@ $product_detail_image = $img_path_view . $image;
             <img src="././public/images/pro-detail-1-04-full.avif" alt="" class="product-detail-image" /> -->
           </div>
         </div>
-        <div class="product-detail-content">
+        <form class="product-detail-content" action="index.php?act=add_to_cart" method="post">
           <h4 class="product-detail-brand"><?= $brand_name ?></h4>
           <h2 class="product-detail-title">
             <?= $pro_name ?>
@@ -94,7 +94,7 @@ $product_detail_image = $img_path_view . $image;
             <h4 class="product-detail-heading">MÀU SẮC</h4>
             <div class="product-detail-radios">
               <div class="product-detail-radio product-detail-color-radio">
-                <input type="radio" id="<?= $id_pro_color ?>" class="product-detail-radio-input" checked />
+                <input type="radio" id="<?= $id_pro_color ?>" class="product-detail-radio-input" name="color" value="<?= $color ?>" checked />
                 <label for="<?= $id_pro_color ?>" class="product-detail-radio-label" name="color"><?= $color ?></label>
               </div>
             </div>
@@ -107,8 +107,8 @@ $product_detail_image = $img_path_view . $image;
                 // extract($ps);
               ?>
                 <div class="product-detail-radio product-detail-size-radio">
-                  <input type="radio" name="size" id="<?= $value['size']  ?>" class="product-detail-radio-input" <?= ($key === 0) ? "checked" : "" ?> />
-                  <label for="<?= $value['size'] ?>" class="product-detail-radio-label" name="size"><?= $value['size'] ?></label>
+                  <input type="radio" name="size" id="<?= $value['size']  ?>" class="product-detail-radio-input" value="<?= $value['size'] ?>" <?= ($key === 0) ? "checked" : "" ?> />
+                  <label for="<?= $value['size'] ?>" class="product-detail-radio-label"><?= $value['size'] ?></label>
                 </div>
               <?php
               }
@@ -133,7 +133,7 @@ $product_detail_image = $img_path_view . $image;
           </div>
           <div class="product-detail-mani">
             <h4 class="product-detail-heading">Số lượng</h4>
-            <form action="index.php?act=add_to_cart" class="product-detail-work" method="post">
+            <div class="product-detail-work">
               <div class="product-detail-quantity">
                 <input type="number" name="quantity" id="" value="1" step="1" min="1" />
               </div>
@@ -145,7 +145,7 @@ $product_detail_image = $img_path_view . $image;
               <button class="product-detail-addcart" name="btn_insert_cart">
                 Thêm vào giỏ hàng
               </button>
-            </form>
+            </div>
           </div>
           <div class="product-detail-info">
             <div class="product-detail-info-item">
@@ -174,7 +174,7 @@ $product_detail_image = $img_path_view . $image;
               <a href="#">(Xem chi tiết)</a>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </section>

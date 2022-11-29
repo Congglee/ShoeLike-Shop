@@ -40,27 +40,38 @@
             <a href="#" class="header-auth-text sign-up-offer">
               ĐĂNG KÝ VÀ NHẬN 100.000 VNĐ
             </a>
-
-
             <div class="dropdow">
-              <a href="#" class="header-auth-text account">Tài khoản
-                <i class="header-auth-text fa-solid fa-chevron-down"></i></a>
               <?php
               if (isset($_SESSION['user'])) {
                 extract($_SESSION['user']);
+                $user_image = $img_path_view . $image;
               ?>
+                <?php
+                if (is_file($user_image)) {
+                  echo "<div class='header-auth-info'>
+                          <img src='$user_image' class='header-auth-image'>
+                          <a href='index.php?act=user_info' class='header-auth-text account'>Tài khoản
+                            <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                          </a>
+                        </div>";
+                } else {
+                  echo "<a href='index.php?act=user_info' class='header-auth-text account'>Tài khoản
+                          <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                        </a>";
+                }
+                ?>
                 <ul class="dropdow-list">
                   <?php
                   if ($role == 0) {
                   ?>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Hello <?= $id_user ?></a>
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Hello <?= $id_user ?></a>
                     </li>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Tài khoản</a>
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Tài khoản</a>
                     </li>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Đơn hàng của tôi</a>
+                      <a href="index.php?act=user_bill" class="dropdow-link signup">Đơn hàng của tôi</a>
                     </li>
                     <li class="dropdow-item">
                       <a href="index.php?act=signout" class="dropdow-link signin">Đăng xuất</a>
@@ -69,10 +80,10 @@
                   } else {
                   ?>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Hello <?= $id_user ?></a>
+                      <a href="index.php?act=user_info" class="dropdow-link signup">Hello <?= $id_user ?></a>
                     </li>
                     <li class="dropdow-item">
-                      <a href="#" class="dropdow-link signup">Quản lý website</a>
+                      <a href="./admin/index.php" class="dropdow-link signup">Quản lý website</a>
                     </li>
                     <li class="dropdow-item">
                       <a href="index.php?act=signout" class="dropdow-link signin">Đăng xuất</a>
@@ -84,6 +95,9 @@
               <?php
               } else {
               ?>
+                <a href='#' class='header-auth-text account'>Tài khoản
+                  <i class='header-auth-text fa-solid fa-chevron-down'></i>
+                </a>
                 <ul class="dropdow-list">
                   <li class="dropdow-item">
                     <a href="index.php?act=signup" class="dropdow-link signup">Đăng ký</a>

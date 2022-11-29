@@ -87,13 +87,46 @@
                     <span class="ship-info-contact-content"><?= number_format($total_order, "0", ",", ".") ?>đ</span>
                   </div>
                   <div class="ship-info-contact-item">
+                    <span class="ship-info-contact-title">Ngày đặt hàng</span>
+                    <!-- <span class="ship-info-contact-content">
+                      <?= $list_order[0]['date'] ?></span> -->
+                    <span class="ship-info-contact-content"><?= $date ?></span>
+                  </div>
+                  <div class="ship-info-contact-item">
                     <span class="ship-info-contact-title">Phương thức thanh toán</span>
                     <span class="ship-info-contact-content">
                       <?php
                       if ($payment == 1) {
-                        echo "Chuyển khoản qua ngân hàng";
+                        echo "<div class='ship-info-bill-payment'>
+                                <p>Hình thức: Chuyển khoản qua ngân hàng</p>
+                                <p>Thông tin chuyển khoản:</p>
+                                <p>LE THANH CONG 0953418062003</p>
+                                <p>MB-BANK Ngân hàng Quân Đội</p>
+                              </div>
+                        ";
                       } else if ($payment == 2) {
-                        echo "Thanh toán trực tiếp";
+                        echo "Thanh toán trực tiếp khi nhận hàng";
+                      }
+                      ?>
+                    </span>
+                  </div>
+                  <div class="ship-info-contact-item">
+                    <span class="ship-info-contact-title">Ghi chú</span>
+                    <!-- <span class="ship-info-contact-content">
+                      <?= $list_order[0]['date'] ?></span> -->
+                    <span class="ship-info-contact-content">
+                      <?php
+                      if ($payment == 1) {
+                        echo "<div class='ship-info-bill-payment'>
+                                  <p>Quý khách sau khi thanh toán, chuyển khoản thành công thì tình trạng đơn hàng sẽ được xử lý; quý khách có thể kiểm tra trong đơn hàng của tài khoản cá nhân</p>
+                                  <p>Quá trình xử lý đơn hàng có thể mất đến vài phút, xin quý khách vui lòng chờ đợi</p>
+                              </div>
+                          ";
+                      } else if ($payment == 2) {
+                        echo "<div class='ship-info-bill-payment'>
+                                <p>Quý khách có thể kiểm tra trong đơn hàng của tài khoản cá nhân</p>
+                                <p>Quá trình xử lý đơn hàng có thể mất đến vài phút, xin quý khách vui lòng chờ đợi</p>
+                              </div>";
                       }
                       ?>
                     </span>
@@ -105,9 +138,12 @@
             </div>
           </div>
 
-          <button class="ship-info-confirm-submit">
+          <a href="index.php" class="ship-info-confirm-submit">
             Quan lại trang chủ
-          </button>
+          </a>
+          <a href="index.php?act=user_bill" class="ship-info-confirm-submit">
+            Xem đơn hàng
+          </a>
         </div>
 
         <div class="ship-info-bill ship-info-confirm-bill">
@@ -126,7 +162,7 @@
                   <img src="<?= $cart_image ?>" alt="" class="bill-image" />
                   <div class="bill-product">
                     <h3><?= $lc['name'] ?></h3>
-                    <span>Số lượng: <?= $lc['quantity'] ?></span>
+                    <span>Số lượng: <?= $lc['quantity'] ?> - Size: <?= $lc['size'] ?></span>
                   </div>
                   <div class="bill-price">
                     <span><?= number_format($lc['price'], "0", ",", ".") ?>đ</span>
