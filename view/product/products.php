@@ -19,7 +19,7 @@
     <div class="products-container">
       <div class="filter">
         <h3 class="filter-title">SẮP XẾP THEO</h3>
-        <select name="" id="" class="filter-select">
+        <select name="" id="" class="filter-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
           <option value="">Bán chạy nhất</option>
           <option value="">Mới nhất</option>
           <option value="">Giá giảm dần</option>
@@ -42,10 +42,10 @@
         <div class="products-col-list">
           <form action="" class="product-col-form">
             <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="male" />
+              <input type="checkbox" class=" products-col-input" id="male" />
               <label for="male" class="products-col-label">Nam</label>
             </div>
-            <div class="products-col-item">
+            <div class=" products-col-item">
               <input type="checkbox" class="products-col-input" id="female" />
               <label for="female" class="products-col-label">Nữ</label>
             </div>

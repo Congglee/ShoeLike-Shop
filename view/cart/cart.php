@@ -125,26 +125,20 @@
               </div>
 
               <?php
-              if (isset($_SESSION['user'])) {
-                if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
-              ?>
-                  <a href='index.php?act=bill' class='cart-checkout-submit full'>Thanh toán</a>
-                <?php
+              if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {
+                if (!isset($_SESSION['user'])) {
+                  echo "<a href='index.php?act=signin' class='cart-checkout-submit full'>Đăng nhập</a>";
+                  echo "<h4 class='alert-text alert-fail'>Quý khách vui lòng đăng nhập để thanh toán</h4>";
                 } else {
-                ?>
-                  <form action='index.php?act=cart' method='post'>
-                    <button class='cart-checkout-submit full' name='btn_checkout_submit'>Thanh toán</button>
-                  </form>
-                  <?php
-                  if (isset($message) && ($message != "")) {
-                    echo "<h4 class='alert-text $alert'>$message</h4>";
-                  }
-                  ?>
-              <?php
+                  echo "<a href='index.php?act=bill' class='cart-checkout-submit full'>Thanh toán</a>";
                 }
               } else {
-                echo "<a href='index.php?act=signin' class='cart-checkout-submit full'>Đăng nhập</a>";
-                echo "<h4 class='alert-text alert-fail'>Quý khách vui lòng đăng nhập để thanh toán</h4>";
+                echo "<form action='index.php?act=cart' method='post'>
+                <button class='cart-checkout-submit full' name='btn_checkout_submit'>Thanh toán</button>
+              </form>";
+                if (isset($message) && ($message != "")) {
+                  echo "<h4 class='alert-text $alert'>$message</h4>";
+                }
               }
               ?>
             </div>

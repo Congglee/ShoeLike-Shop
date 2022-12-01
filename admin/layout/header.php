@@ -65,11 +65,28 @@
           </a>
           <ul class="collapse list-unstyled" id="products">
             <li>
-              <a href=""><i class="fas fa-plus"></i>Thêm sản phẩm</a>
+              <a href="index.php?act=add_product"><i class="fas fa-plus"></i>Thêm sản phẩm</a>
             </li>
             <li>
-              <a href="">
+              <a href="index.php?act=list_product">
                 <i class="fas fa-list-ul"></i>Danh sách sản phẩm</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_pro_size">
+                <i class="fas fa-list-ul"></i>Danh sách size sản phẩm</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_pro_color">
+                <i class="fas fa-list-ul"></i>Danh sách màu sản phẩm</a>
+            </li>
+          </ul>
+          <ul class="collapse list-unstyled" id="products">
+            <li>
+              <a href="index.php?act=add_pro_detail_img"><i class="fas fa-plus"></i>Thêm ảnh sản phẩm</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_detail_pro_img">
+                <i class="fas fa-list-ul"></i>Danh sách ảnh sản phẩm</a>
             </li>
           </ul>
         </li>

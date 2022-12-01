@@ -31,8 +31,27 @@
             <li>Thân trên: 56.2% tổng hợp / 43.8% dệt may</li>
             <li>Đế giày: EVA / cao su</li>
           </ul> -->
+
+        <!-- <h3 class="heading-medium product-info-title-left">
+         GIÀY THỜI TRANG NỮ PUMA CITY RIDER
+          </h3>
+          <p>
+           Thiết kế đường phố trên dòng giày Rider đặc trưng của PUMA, phiên bản City này đã sẵn sàng cho những bước tiến hiện đại. Với lớp lưới thoáng khí phía trên kết hợp với chất liệu da lộn cổ điển và màu sắc tươi sáng bắt mắt, những đôi giày này còn được trang bị lớp đệm êm ái cho bạn tận hưởng cảm giác thoải mái suốt cả ngày dài. Thiết kế cổ điển, phù hợp với mọi giới tính, bạn đã sẵn sàng thể hiện phong cách trên mọi nẻo đường?
+          </p>
+          <h3 class="heading-medium product-info-title-left">CÁC TÍNH NĂNG KHÁC</h3>
+          <p>
+          IMEVA: Một loại chất liệu của PUMA cho cảm giác nhẹ và thoải mái
+          </p>
+          <h3 class="heading-medium product-info-title-left">THÔNG SỐ</h3>
+          <ul>
+            <li>Lycra, phối lưới, da lộn và lớp phủ tổng hợp</li>
+            <li>Đế giữa IMEVA</li>
+            <li>Đế giày cao su</li>
+            <li>Giày có dây thắt</li>
+            <li>PUMA Wordmark ở lưỡi gà</li>
+          </ul> -->
         <p>
-          <?= $description ?>
+          <?= htmlspecialchars_decode($description) ?>
         </p>
       </div>
     </div>
