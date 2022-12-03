@@ -383,15 +383,21 @@
     &-review {
       display: flex;
       gap: 0 30px;
+      &-column {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        gap: 25px 0;
+      }
       &-user {
         display: flex;
         gap: 0 15px;
-        width: 50%;
       }
       &-image {
         width: 45px;
         height: 45px;
         object-fit: cover;
+        border-radius: 50%;
       }
       &-name {
         margin-bottom: 12px;
@@ -494,6 +500,10 @@
         font-size: 15px;
         border: solid 2px transparent;
         transition: all 0.4s linear;
+        a {
+          color: $white-color;
+          font-size: 15px;
+        }
         &:hover {
           border: solid 2px $text-sale-color;
           transition: all 0.4s linear;

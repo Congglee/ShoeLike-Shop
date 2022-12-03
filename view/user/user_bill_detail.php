@@ -46,6 +46,7 @@ if (is_array($user_order)) {
 
             <div class="user-bill-status">
               <span>Đơn hàng đã đặt ngày <?= $date ?></span>
+              <span>Ghi chú: <?= $note ?></span>
             </div>
 
             <table class="user-bill-table">

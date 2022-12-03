@@ -282,6 +282,70 @@ if (isset($_GET['act'])) {
       include "product/product_detail_img/detail_pro_image.php";
       break;
 
+    case "list_order":
+      $list_order = showAllOrder(0);
+      include "order/list.php";
+      break;
+
+    case "update_order":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update.php";
+      break;
+
+    case "update_order_total":
+      if (isset($_POST['btn_update_order'])) {
+        $id_order = $_POST['id_order'];
+        $status = $_POST['status'];
+        updateOrderAdmin($id_order, $status);
+      }
+      $list_order = showAllOrder(0);
+      include "order/list.php";
+      break;
+
+    case "delete_order":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = deleteOrderAdmin($_GET['id_order']);
+      }
+      $list_order = showAllOrder(0);
+      include "order/list.php";
+      break;
+
+    case "delete_order_total":
+      if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+        $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      }
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update.php";
+      break;
+
+    case "comment":
+      $list_comment = listCommentAdmin();
+      include "comment/list.php";
+      break;
+
+    case "detail_comment":
+      if (isset($_GET['id_pro']) && ($_GET['id_pro'] > 0)) {
+        $list_detail_comment = getCommentByIdPro($_GET['id_pro']);
+      }
+      include "comment/detail_comment.php";
+      break;
+
+    case "delete_comment":
+      if (isset($_GET['id_comment']) && ($_GET['id_comment']) > 0) {
+        $comment = deleteComment($_GET['id_comment']);
+      }
+      if (isset($_GET['id_pro']) && ($_GET['id_pro'] > 0)) {
+        $list_detail_comment = getCommentByIdPro($_GET['id_pro']);
+      }
+      include "comment/detail_comment.php";
+      break;
+
     default:
       include "layout/home.php";
       break;

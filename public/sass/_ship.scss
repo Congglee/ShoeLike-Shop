@@ -50,6 +50,19 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 9px;
+        textarea {
+          font-family: $font;
+          padding: 10px 16px;
+          font-size: 16px;
+          transition: all 0.35s linear;
+          border: solid 2px $border-color;
+          border-radius: 5px;
+          resize: unset;
+          &:focus {
+            transition: all 0.35s linear;
+            border-color: #338dbc;
+          }
+        }
       }
     }
     &-input {

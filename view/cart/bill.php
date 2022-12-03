@@ -17,13 +17,13 @@
         <div class="ship-info-user">
           <h4 class="ship-info-title">Thông tin giao hàng</h4>
           <?php
-          if (isset($_SESSION['user'])) {
-            $id_user = $_SESSION['user']['id_user'];
-            $name = $_SESSION['user']['name'];
-            $address = $_SESSION['user']['address'];
-            $email = $_SESSION['user']['email'];
-            $image = $_SESSION['user']['image'];
-            $phone = $_SESSION['user']['phone'];
+          if (isset($_SESSION['user_bill'])) {
+            $id_user = $_SESSION['user_bill']['id_user'];
+            $name = $_SESSION['user_bill']['name'];
+            $address = $_SESSION['user_bill']['address'];
+            $email = $_SESSION['user_bill']['email'];
+            $image = $_SESSION['user_bill']['image'];
+            $phone = $_SESSION['user_bill']['phone'];
           } else {
             $name = "";
             $address = "";
@@ -37,7 +37,7 @@
               <i class="fa-solid fa-user"></i>
             </div> -->
             <?php
-            if (isset($_SESSION['user'])) {
+            if (isset($_SESSION['user_bill'])) {
             ?>
               <div class="ship-info-name">
                 <span><?= $name ?> (<?= $email ?>)</span>
@@ -50,7 +50,7 @@
           <div class="ship-info-content">
             <form action="index.php?act=bill_payment" class="ship-info-form" method="post">
               <?php
-              if (isset($_SESSION['user'])) {
+              if (isset($_SESSION['user_bill'])) {
               ?>
                 <div class="ship-info-form-group">
                   <input type="text" class="ship-info-input" name="address" placeholder="Địa chỉ" value="<?= $address ?>" required />
@@ -65,6 +65,9 @@
                 <div class="ship-info-form-group">
                   <input type="text" class="ship-info-input" name="phone" placeholder="Số điện thoại" value="<?= $phone ?>" required />
                   <input type="hidden" class="ship-info-input" name="id_user" value="<?= $id_user ?>" />
+                </div>
+                <div class="ship-info-form-group">
+                  <textarea name="note" id="" cols="30" rows="6" placeholder="Ghi chú"><?= (isset($_SESSION['note'])) ? $_SESSION['note'] : "" ?></textarea>
                 </div>
               <?php
               }

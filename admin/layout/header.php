@@ -109,13 +109,13 @@
         </li>
 
         <li>
-          <a href="index.php?act=binh_luan"> <i class="fas fa-comments"></i>Bình luận</a>
+          <a href="index.php?act=comment"> <i class="fas fa-comments"></i>Bình luận</a>
         </li>
         <li>
           <a href="index.php?act=thong_ke"><i class="fas fa-chart-line"></i></i>Thống kê</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-shipping-fast"></i></i>Đơn hàng</a>
+          <a href="index.php?act=list_order"><i class="fas fa-shipping-fast"></i></i>Đơn hàng</a>
         </li>
 
         <li>

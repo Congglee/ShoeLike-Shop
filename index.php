@@ -23,8 +23,23 @@ if (isset($_GET['act'])) {
     case "products":
       $list_cate = listCategory();
       $list_brand = listBrand();
-      $list_pro = listProduct();
+      $list_pro = listProduct(20);
       include "view/product/products.php";
+      break;
+
+    case "products_field":
+      $list_cate = listCategory();
+      $list_brand = listBrand();
+      if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['sort']) && ($_GET['sort'] != "")) {
+        $field = isset($_GET['field']) ? $_GET['field'] : "";
+        $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
+        $list_pro_field = listProductsFieldSort("$field", "$sort", 20);
+      } else if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['condition']) && ($_GET['condition'] != "")) {
+        $field = isset($_GET['field']) ? $_GET['field'] : "";
+        $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
+        $list_pro_field = listProductsFieldConditions("$field", $condition, 20);
+      }
+      include "view/product/products_field.php";
       break;
 
     case "product_detail":
@@ -33,14 +48,19 @@ if (isset($_GET['act'])) {
         $product = productDetail($id_pro);
         updateViews($id_pro);
         extract($product);
-        // $product_color = productDetailColor($id_pro);
         $product_size = productDetailSize($id_pro);
         $product_detail_img = productDetailImage($id_pro);
-        // var_dump($product);
-        // var_dump($product_color);
-        // var_dump($product_size);
-        // var_dump($product_detail_img);
         $product_relate = productRelate($id_pro, $id_cate);
+
+        if (isset($_POST['rate'])) {
+          $content = $_POST['content'];
+          $date = date_format(date_create(), 'Y-m-d');
+          $rate = $_POST['rate'];
+
+          addComment($content, $date, $rate, $id_pro, $_SESSION['user']['id_user']);
+        }
+        $list_comment = getCommentByIdPro($id_pro);
+        $countComment = count($list_comment);
       }
       include "view/product/product_detail.php";
       break;
@@ -102,6 +122,12 @@ if (isset($_GET['act'])) {
         $message = "Giỏ hàng của bạn đang trống, vui lòng chọn sản phẩm !";
         $alert = "alert-fail";
       }
+      if (isset($_SESSION['user'])) {
+        $id_user = $_SESSION['user']['id_user'];
+      }
+      $user = getUserById($id_user);
+
+      $_SESSION['user_bill'] = $user;
       include "view/cart/cart.php";
       break;
 
@@ -115,19 +141,23 @@ if (isset($_GET['act'])) {
         $order_email = $_POST['email'];
         $order_address = $_POST['address'];
         $order_phone = $_POST['phone'];
+        // $note = $_POST['note'];
 
-        $_SESSION['user']['email'] = $order_email;
-        $_SESSION['user']['name'] = $order_name;
-        $_SESSION['user']['address'] = $order_address;
-        $_SESSION['user']['phone'] = $order_phone;
+        $note = $_POST['note'];
+        $_SESSION['note'] = $note;
+
+        $_SESSION['user_bill']['email'] = $order_email;
+        $_SESSION['user_bill']['name'] = $order_name;
+        $_SESSION['user_bill']['address'] = $order_address;
+        $_SESSION['user_bill']['phone'] = $order_phone;
       }
       include "view/cart/bill_payment.php";
       break;
 
     case "bill_confirm":
       if (isset($_POST['btn_submit'])) {
-        if (isset($_SESSION['user'])) {
-          $id_user = $_SESSION['user']['id_user'];
+        if (isset($_SESSION['user_bill'])) {
+          $id_user = $_SESSION['user_bill']['id_user'];
         } else {
           $id_user = "";
         }
@@ -137,11 +167,12 @@ if (isset($_GET['act'])) {
         $order_address = $_POST['address'];
         $order_phone = $_POST['phone'];
         $payment = $_POST['payment'];
+        $note = $_POST['note'];
         $date = date_format(date_create(), "d/m/Y");
         // $date = date("h:i:sa d/m/Y");
         $id_bill = "SHOELIKE" . rand(0, 99999);
 
-        $id_order = insertOrder($id_bill, $total_order, $payment, $id_user, $date, $order_name, $order_address, $order_email, $order_phone);
+        $id_order = insertOrder($id_bill, $total_order, $payment, $id_user, $date, $note, $order_name, $order_address, $order_email, $order_phone);
         $_SESSION['id_order'] = $id_order;
 
         if (isset($_SESSION['cart']) && (count($_SESSION['cart']) > 0)) {

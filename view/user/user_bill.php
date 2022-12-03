@@ -95,7 +95,17 @@
                         <span><?= number_format($total_order, "0", ",", ".") ?>đ</span>
                       </td>
                       <td>
-                        <a href="<?= $user_delete_order ?>" onclick="return confirm('Bạn có chắc là muốn hủy đơn hàng này chứ ?')" class="user-bill-remove">Hủy</a>
+                        <?php
+                        if ($status != 0 && $status != 1) {
+                        ?>
+                          <a href="#" onclick="return alert('Đơn hàng đang được giao không hủy được !')" class="user-bill-disabled">Hủy</a>
+                        <?php
+                        } else {
+                        ?>
+                          <a href="<?= $user_delete_order ?>" onclick="return confirm('Bạn có muốn xóa đơn hàng này không ?' )" class="user-bill-remove">Hủy</a>
+                        <?php
+                        }
+                        ?>
                       </td>
                     </tr>
                 <?php

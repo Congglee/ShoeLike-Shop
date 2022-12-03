@@ -242,5 +242,16 @@
         color: $white-color;
       }
     }
+    &-disabled {
+      padding: 6px 20px;
+      color: $gray-light-color;
+      font-size: 13px;
+      font-weight: 600;
+      border: solid 1px $gray-light-color;
+      &:hover {
+        background-color: $gray-light-color;
+        color: $white-color;
+      }
+    }
   }
 }

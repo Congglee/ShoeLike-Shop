@@ -18,9 +18,9 @@
           <div class="ship-info-contact ship-info-confirm-list">
             <div class="ship-info-contact-list ship-info-confirm-item">
               <?php
-              if (isset($_SESSION['user'])) {
-                $email = $_SESSION['user']['email'];
-                $address = $_SESSION['user']['address'];
+              if (isset($_SESSION['user_bill'])) {
+                $email = $_SESSION['user_bill']['email'];
+                $address = $_SESSION['user_bill']['address'];
               ?>
                 <div class="ship-info-contact-item">
                   <span class="ship-info-contact-title">Liên hệ</span>
@@ -122,6 +122,7 @@
         <input type="hidden" name="address" value="<?= $order_address ?>">
         <input type="hidden" name="phone" value="<?= $order_phone ?>">
         <input type="hidden" name="total_order" value="<?= $total ?>">
+        <input type="hidden" name="note" value="<?= $note ?>">
       </form>
     </div>
   </section>

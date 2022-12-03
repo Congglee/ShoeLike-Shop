@@ -1026,15 +1026,21 @@ h6 {
   display: flex;
   gap: 0 30px;
 }
+.product-info-review-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 25px 0;
+}
 .product-info-review-user {
   display: flex;
   gap: 0 15px;
-  width: 50%;
 }
 .product-info-review-image {
   width: 45px;
   height: 45px;
   object-fit: cover;
+  border-radius: 50%;
 }
 .product-info-review-name {
   margin-bottom: 12px;
@@ -1137,6 +1143,10 @@ h6 {
   font-size: 15px;
   border: solid 2px transparent;
   transition: all 0.4s linear;
+}
+.product-info-review-submit a {
+  color: #fff;
+  font-size: 15px;
 }
 .product-info-review-submit:hover {
   border: solid 2px #ec3d17;
@@ -1945,6 +1955,19 @@ h6 {
   flex-direction: column;
   margin-bottom: 9px;
 }
+.ship-info-form-group textarea {
+  font-family: "Noto Sans", sans-serif;
+  padding: 10px 16px;
+  font-size: 16px;
+  transition: all 0.35s linear;
+  border: solid 2px #e8e9eb;
+  border-radius: 5px;
+  resize: unset;
+}
+.ship-info-form-group textarea:focus {
+  transition: all 0.35s linear;
+  border-color: #338dbc;
+}
 .ship-info-input {
   padding: 13px 16px;
   border: solid 2px #e8e9eb;
@@ -2432,6 +2455,17 @@ h6 {
 }
 .user-bill-remove:hover {
   background-color: #fc566f;
+  color: #fff;
+}
+.user-bill-disabled {
+  padding: 6px 20px;
+  color: #9b9b9b;
+  font-size: 13px;
+  font-weight: 600;
+  border: solid 1px #9b9b9b;
+}
+.user-bill-disabled:hover {
+  background-color: #9b9b9b;
   color: #fff;
 }
 

@@ -2,19 +2,72 @@
 require_once "pdo.php";
 
 // User Side View
-function listProduct()
+function listProduct($limit)
 {
-  $sql = "SELECT * FROM product p, product_color pc, product_size ps WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND color <> '' AND size <> '' GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC";
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
+  }
+  $current_page = $_GET['page'];
+  $_SESSION['page'] = $_GET['page'];
+  $offset = ($current_page - 1) * $limit;
+  $total_pro = pdo_query_value("SELECT count(*) FROM product");
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND color <> '' AND size <> '' GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC LIMIT $limit OFFSET $offset";
   $list_pro = pdo_query($sql);
   return $list_pro;
 }
 
-// function listProductNew()
-// {
-//   $sql = "SELECT * FROM product p JOIN product_brand pb ON p.id_brand = pb.id_brand WHERE p.special = 1 ORDER BY id_pro DESC LIMIT 0,12";
-//   $list_pro_new = pdo_query($sql);
-//   return $list_pro_new;
-// }
+function listProductCart($arrange)
+{
+  $sql = "SELECT * FROM product p, product_size ps WHERE p.id_pro = ps.id_pro AND p.id_pro IN ($arrange)";
+  // var_dump($sql);
+  $list_pro_cart = pdo_query($sql);
+  return $list_pro_cart;
+}
+
+function listProductsFieldSort($field, $sort, $limit)
+{
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
+  }
+  $current_page = $_GET['page'];
+  $_SESSION['page'] = $_GET['page'];
+  $offset = ($current_page - 1) * $limit;
+  $total_pro = pdo_query_value("SELECT count(*) FROM product");
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+
+  $condition = "";
+  $field = isset($_GET['field']) ? $_GET['field'] : "";
+  $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
+  if (!empty($field) && !empty($sort)) {
+    $condition = "ORDER BY `p`.`" . $field . "` " . $sort;
+  }
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro  AND color <> '' AND size <> '' GROUP BY p.id_pro, p.pro_name $condition LIMIT $limit OFFSET $offset";
+  $list_pro_field_sort = pdo_query($sql);
+  return $list_pro_field_sort;
+}
+
+function listProductsFieldConditions($field, $condition, $limit)
+{
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
+  }
+  $current_page = $_GET['page'];
+  $_SESSION['page'] = $_GET['page'];
+  $offset = ($current_page - 1) * $limit;
+  $total_pro = pdo_query_value("SELECT count(*) FROM product");
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+
+  $cond = "";
+  $field = isset($_GET['field']) ? $_GET['field'] : "";
+  $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
+  if (!empty($field) && !empty($condition)) {
+    $cond = "$field = " . $condition;
+  }
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps, product_brand pb WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND p.id_brand = pb.id_brand AND color <> '' AND size <> '' AND $cond GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC LIMIT $limit OFFSET $offset";
+  $list_pro_condition = pdo_query($sql);
+  return $list_pro_condition;
+}
 
 function listProductNew()
 {
@@ -304,4 +357,3 @@ function getProductDetailImg($id_pro_detail_img)
   $product_detail_image = pdo_query_one($sql);
   return $product_detail_image;
 }
-// INSERT INTO employee_details (emp_id, emp_name, emp_designation, emp_rating) SELECT ed emp_id, ed.emp_name, ed.emp_designation, er.emp_rating FROM employee_designation ed LEFT JOIN employee_rating er ON ed.emp_id = er.emp_id;  
