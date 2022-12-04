@@ -48,11 +48,11 @@
           </a>
           <ul class="collapse list-unstyled" id="categories">
             <li>
-              <a href="">
+              <a href="index.php?act=add_category">
                 <i class="fas fa-plus"></i>Thêm Danh Mục</a>
             </li>
             <li>
-              <a href="">
+              <a href="index.php?act=list_category">
                 <i class="fas fa-list-ul"></i>Danh sách danh mục</a>
             </li>
           </ul>
@@ -99,10 +99,10 @@
           </a>
           <ul class="collapse list-unstyled" id="accounts">
             <li>
-              <a href=""><i class="fas fa-plus"></i>Thêm khách hàng</a>
+              <a href="index.php?act=add_user"><i class="fas fa-plus"></i>Thêm khách hàng</a>
             </li>
             <li>
-              <a href="">
+              <a href="index.php?act=list_user">
                 <i class="fas fa-list-ul"></i>Danh sách khách hàng</a>
             </li>
           </ul>
@@ -112,7 +112,7 @@
           <a href="index.php?act=comment"> <i class="fas fa-comments"></i>Bình luận</a>
         </li>
         <li>
-          <a href="index.php?act=thong_ke"><i class="fas fa-chart-line"></i></i>Thống kê</a>
+          <a href="index.php?act=stat"><i class="fas fa-chart-line"></i></i>Thống kê</a>
         </li>
         <li>
           <a href="index.php?act=list_order"><i class="fas fa-shipping-fast"></i></i>Đơn hàng</a>

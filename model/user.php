@@ -54,3 +54,32 @@ function changeUserPassword($id_user, $password2)
   $sql = "UPDATE user SET password = '$password2' WHERE id_user = '$id_user'";
   pdo_execute($sql);
 }
+
+function addUserAdmin($id_user, $password, $image, $name, $phone, $email, $address, $role)
+{
+  $sql = "INSERT INTO user(id_user, password, image, name, phone, email, address, role) VALUES ('$id_user', '$password', '$image', '$name', '$phone', '$email', '$address', '$role')";
+  pdo_execute($sql);
+}
+
+function listUser()
+{
+  $sql = "SELECT * FROM user ORDER BY id_user DESC";
+  $list_user = pdo_query($sql);
+  return $list_user;
+}
+
+function updateUserByAdmin($id_user, $password, $image, $name, $phone, $email, $address, $role)
+{
+  if ($image != "") {
+    $sql = "UPDATE user SET password = '$password', image = '$image', name = '$name', phone = '$phone', email = '$email', address = '$address', role = '$role' WHERE id_user = '$id_user'";
+  } else {
+    $sql = "UPDATE user SET password = '$password', name = '$name', phone = '$phone', email = '$email', address = '$address', role = '$role' WHERE id_user = '$id_user'";
+  }
+  pdo_execute($sql);
+}
+
+function deleteUser($id_user)
+{
+  $sql = "DELETE FROM user WHERE id_user = '$id_user'";
+  pdo_execute($sql);
+}

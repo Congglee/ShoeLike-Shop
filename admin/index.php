@@ -15,6 +15,47 @@ include "layout/header.php";
 if (isset($_GET['act'])) {
   $act = $_GET['act'];
   switch ($act) {
+    case "add_category":
+      if (isset($_POST['btn_insert']) && ($_POST['btn_insert'])) {
+        $cate_name = $_POST['cate_name'];
+        addCategory($cate_name);
+        $message = "Thêm thành công";
+      }
+      include "category/add.php";
+      break;
+
+    case "list_category":
+      $list_category = listCategory();
+      include "category/list.php";
+      break;
+
+    case "update_category":
+      if (isset($_GET['id_cate']) && ($_GET['id_cate']) > 0) {
+        $id_cate = $_GET['id_cate'];
+        $category = getCategoryById($id_cate);
+      }
+      include "category/update.php";
+      break;
+
+    case "update_cate":
+      if (isset($_POST['btn_update']) && ($_POST['btn_update'])) {
+        $id_cate = $_POST['id_cate'];
+        $cate_name = $_POST['cate_name'];
+        updateCategory($id_cate, $cate_name);
+        $message = "Cập nhật thành công";
+      }
+      $list_category = listCategory();
+      include "category/list.php";
+      break;
+
+    case "delete_category":
+      if (isset($_GET['id_cate']) && ($_GET['id_cate'] > 0)) {
+        deleteCategory($_GET['id_cate']);
+      }
+      $list_category = listCategory();
+      include "category/list.php";
+      break;
+
     case "add_product":
       if (isset($_POST['btn_insert']) && ($_POST['btn_insert'])) {
         $pro_name = $_POST['pro_name'];
@@ -282,6 +323,109 @@ if (isset($_GET['act'])) {
       include "product/product_detail_img/detail_pro_image.php";
       break;
 
+    case "add_user":
+      if (isset($_POST['btn_insert']) && ($_POST['btn_insert'])) {
+        $id_user = $_POST['id_user'];
+        $password = $_POST['password'];
+        $image = $_FILES['image']['name'];
+
+        $target_dir = $img_path_admin;
+        $target_file = $target_dir . basename($_FILES['image']['name']);
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+          $message = "Đăng tải ảnh thành công";
+        } else {
+          $message = "Đăng tải ảnh lên thất bại !";
+        }
+
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $role = $_POST['role'];
+
+        if (strlen($password) < 6) {
+          $message = "Vui lòng nhập mật khẩu có từ 6 ký tự trở lên";
+          $alert = "alert-danger";
+        } else if (checkUserExist($id_user)) {
+          $message = "Tên đăng nhập đã tồn tại !";
+          $alert = "alert-danger";
+        } else if (checkEmailExist($email)) {
+          $message = "Email bạn nhập đã tồn tại !";
+          $alert = "alert-danger";
+        } else {
+          addUserAdmin($id_user, $password, $image, $name, $phone, $email, $address, $role);
+          $message = "Thêm tài khoản thành công";
+          $alert = "alert-success";
+        }
+      }
+      include "user/add.php";
+      break;
+
+    case "list_user":
+      $list_user = listUser();
+      include "user/list.php";
+      break;
+
+    case "update_user":
+      if (isset($_GET['id_user']) && ($_GET['id_user'] > 0)) {
+        $user = getUserById($_GET['id_user']);
+      }
+      include "user/update.php";
+      break;
+
+    case "update_user_account":
+      if (isset($_POST['btn_update'])) {
+        $id_user = $_POST['id_user'];
+        $password = $_POST['password'];
+        $image = $_FILES['image']['name'];
+
+        $target_dir = $img_path_admin;
+        $target_file = $target_dir . basename($_FILES['image']['name']);
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+          $message = "Đăng tải ảnh thành công";
+        } else {
+          $message = "Đăng tải ảnh lên thất bại !";
+        }
+
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $role = $_POST['role'];
+
+
+        if (strlen($password) < 6) {
+          $message = "Vui lòng nhập mật khẩu có từ 6 ký tự trở lên";
+          $alert = "alert-danger";
+          if (isset($_GET['id_user']) && ($_GET['id_user'] != "")) {
+            $user = getUserById($id_user);
+            include "user/update.php";
+          }
+        } else if (checkEmailExist2($email, $id_user) > 0) {
+          $message = "Email bạn nhập đã tồn tại !";
+          $alert = "alert-danger";
+          if (isset($_GET['id_user']) && ($_GET['id_user'] != "")) {
+            $user = getUserById($id_user);
+            include "user/update.php";
+          }
+        } else {
+          updateUserByAdmin($id_user, $password, $image, $name, $phone, $email, $address, $role);
+          $list_user = listUser();
+          include "user/list.php";
+        }
+      }
+      break;
+
+    case "delete_user":
+      if (isset($_GET['id_user']) && ($_GET['id_user']) != "") {
+        $user = deleteUser($_GET['id_user']);
+      }
+      $list_user = listUser();
+      include "user/list.php";
+      break;
+
     case "list_order":
       $list_order = showAllOrder(0);
       include "order/list.php";
@@ -344,6 +488,11 @@ if (isset($_GET['act'])) {
         $list_detail_comment = getCommentByIdPro($_GET['id_pro']);
       }
       include "comment/detail_comment.php";
+      break;
+
+    case "stat":
+      $list_stat = listStatProduct();
+      include "stat/list.php";
       break;
 
     default:
