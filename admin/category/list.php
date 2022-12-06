@@ -9,13 +9,9 @@
       <div class="box box-primary">
         <div class="box-body">
           <form action="?btn_delete_all" method="post" class="table-responsive">
-            <button type="submit" class="btn btn-danger mb-1" id="deleteAll" onclick="">
-              Xóa mục đã chọn
-            </button>
             <table width="100%" class="table table-hover table-bordered text-center">
               <thead class="thead-dark">
                 <tr>
-                  <th><input type="checkbox" id="select-all" /></th>
                   <th>Mã danh mục</th>
                   <th>Tên danh mục</th>
                   <th>
@@ -31,9 +27,6 @@
                   $delete_category = "index.php?act=delete_category&id_cate=" . $id_cate;
                 ?>
                   <tr>
-                    <td>
-                      <input type="checkbox" name="" value="" />
-                    </td>
                     <td><?= $id_cate ?></td>
                     <td><?= $cate_name  ?></td>
                     <td class="text-end">

@@ -14,10 +14,7 @@ if (is_array($order)) {
     <div class="box box-primary">
       <div class="box-body">
         <form action="index.php?act=update_order_total" method="post" class="table-responsive">
-          <div class="row" style="gap: 0 20px; margin: 0; padding: 0 15px; align-items: center; justify-content: space-between;">
-            <button type="submit" class="btn btn-danger mb-1" id="deleteAll" onclick="">
-              Xóa mục đã chọn
-            </button>
+          <div class="row" style="gap: 0 20px; margin: 0; padding: 0 15px; align-items: center; justify-content: flex-end;">
             <div class="row" style="gap: 0 20px; margin: 0; align-items: center;">
               <button type="submit" name="btn_update_order" class="btn btn-success mb-1">
                 Cập nhật
@@ -60,7 +57,6 @@ if (is_array($order)) {
           <table width="100%" class="table table-hover table-bordered text-center">
             <thead class="thead-dark">
               <tr>
-                <th><input type="checkbox" id="select-all" /></th>
                 <th>Sản phẩm</th>
                 <th>Size</th>
                 <th>Màu</th>
@@ -81,9 +77,6 @@ if (is_array($order)) {
                 $delete_order_total = "index.php?act=delete_order_total&id_order_total=" . $id_order_total . "&id_order=" . $id_order;
               ?>
                 <tr>
-                  <td>
-                    <input type="checkbox" name="" value="" />
-                  </td>
                   <td>
                     <?= $name ?>
                   </td>
@@ -118,15 +111,15 @@ if (is_array($order)) {
             </tbody>
             <tfoot>
               <tr>
-                <th colspan="8" class="text-left">Tổng phụ</th>
+                <th colspan="7" class="text-left">Tổng phụ</th>
                 <td><?= number_format($total_order, "0", ",", ".") ?>đ</td>
               </tr>
               <tr>
-                <th colspan="8" class="text-left">Vận chuyển (FREESHIP)</th>
+                <th colspan="7" class="text-left">Vận chuyển (FREESHIP)</th>
                 <td>0đ</td>
               </tr>
               <tr>
-                <th colspan="8" class="text-left">Tổng</th>
+                <th colspan="7" class="text-left">Tổng</th>
                 <td><?= number_format($total_order, "0", ",", ".") ?>đ</td>
               </tr>
             </tfoot>

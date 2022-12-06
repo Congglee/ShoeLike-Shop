@@ -163,7 +163,7 @@
     </div>
 
     <div class="product-promo-link">
-      <a href="#" class="button button-black">Xem tất cả</a>
+      <a href="index.php?act=products_field&field=price_sale&condition=0" class="button button-black">Xem tất cả</a>
     </div>
   </div>
 </section>

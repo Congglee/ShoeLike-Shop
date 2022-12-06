@@ -6,9 +6,6 @@
   <div class="box box-primary">
     <div class="box-body">
       <form action="?btn_delete_all" method="post" class="table-responsive">
-
-        <button type="submit" class="btn btn-danger mb-1" id="deleteAll" onclick="">
-          Xóa mục đã chọn</button>
         <i class="ml-5">Hàng hóa:
           <b>
             <?= ($list_detail_comment) ? $list_detail_comment[0]['pro_name'] : "" ?>
@@ -17,7 +14,6 @@
         <table width="100%" class="table table-hover table-bordered text-center">
           <thead class="thead-dark">
             <tr>
-              <th><input type="checkbox" id="select-all"></th>
               <th>Đánh giá</th>
               <th>Nội dung</th>
               <th>Ngày BL</th>
@@ -32,7 +28,6 @@
               $delete_comment = "index.php?act=delete_comment&id_comment=" . $id_comment . "&id_pro=" . $id_pro;
             ?>
               <tr>
-                <td><input type="checkbox" name="" value=""></td>
                 <td><?= $rate ?> sao</td>
                 <td><?= $content ?></td>
                 <td><?= $date ?></td>

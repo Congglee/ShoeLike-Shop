@@ -10,7 +10,7 @@
         $brand_image = $img_path_view . $logo;
       ?>
         <div class="brand-item">
-          <a href="#" class="brand-logo">
+          <a href="index.php?act=products_field&field=brand_name&condition=<?= $brand_name ?>" class="brand-logo">
             <img src="<?= $brand_image ?>" alt="" />
           </a>
         </div>

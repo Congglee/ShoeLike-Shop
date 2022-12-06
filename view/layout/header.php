@@ -122,9 +122,9 @@
           </a>
           <div class="header-feature">
             <div class="header-search">
-              <form action="#" class="header-search-form">
-                <input type="text" class="header-search-input" placeholder="Bạn đang tìm gì ..." />
-                <button class="header-search-submit button button-green">
+              <form action="index.php?act=product_keyword&keyword=" class="header-search-form" method="post">
+                <input type="text" class="header-search-input" name="keyword" placeholder="Bạn đang tìm gì ..." value="" />
+                <button type="submit" name="btn_search" class="header-search-submit button button-green">
                   <i class="fa-sharp fa-solid fa-magnifying-glass header-search-icon"></i>
                   Tìm kiếm
                 </button>
@@ -167,16 +167,24 @@
                       <h2 class="dropdow-menu-title">Giày Dép</h2>
                       <a href="index.php?act=products" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
-                    <?php
-                    foreach ($list_cate as $lc) {
-                      extract($lc);
-                    ?>
-                      <div class="dropdow-menu-item">
-                        <a href="#"><?= $cate_name ?></a>
-                      </div>
-                    <?php
-                    }
-                    ?>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=special&condition=1">Sản phẩm mới</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=id_cate&condition=2">Giày thời trang</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=id_cate&condition=3">Giày chạy bộ</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=id_cate&condition=4">Giày luyện tập</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=id_cate&condition=5">Giày bóng rổ</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=id_cate&condition=6">Giày bóng đá</a>
+                    </div>
                   </div>
                   <div class="dropdow-menu-images">
                     <a href="#" class="dropdow-menu-image">
@@ -191,23 +199,32 @@
             </li>
             <li class="menu-item">
               <div class="dropdow-menu">
-                <a href="#" class="menu-link">Nam <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="index.php?act=products_field&field=gender&condition=Nam" class="menu-link">Nam <i class="fa-solid fa-chevron-down"></i></a>
                 <div class="dropdow-menu-list">
                   <div class="dropdow-menu-category">
                     <div class="dropdow-menu-info">
                       <h2 class="dropdow-menu-title">Giày Dép</h2>
-                      <a href="#" class="dropdow-menu-link">Xem tất cả</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nam" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
-                    <?php
-                    foreach ($list_cate as $lc) {
-                      extract($lc);
-                    ?>
-                      <div class="dropdow-menu-item">
-                        <a href="#"><?= $cate_name ?></a>
-                      </div>
-                    <?php
-                    }
-                    ?>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=special&condition2=1">Sản phẩm mới</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=2">Giày thời trang</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=3">Giày chạy bộ</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=4">Giày luyện tập</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=5">Giày bóng rổ</a>
+                    </div>
+                    <div class="dropdow-menu-item">
+                      <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=6">Giày bóng đá</a>
+                    </div>
+
                   </div>
                   <div class="dropdow-menu-images">
                     <a href="#" class="dropdow-menu-image">
@@ -222,24 +239,24 @@
             </li>
             <li class="menu-item">
               <div class="dropdow-menu">
-                <a href="#" class="menu-link">Nữ <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="index.php?act=products_field&field=gender&condition=Nữ" class="menu-link">Nữ <i class="fa-solid fa-chevron-down"></i></a>
                 <div class="dropdow-menu-list">
                   <div class="dropdow-menu-category">
                     <div class="dropdow-menu-info">
                       <h2 class="dropdow-menu-title">Giày Dép</h2>
-                      <a href="#" class="dropdow-menu-link">Xem tất cả</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nữ" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
                     <div class="dropdow-menu-item">
-                      <a href="#">Sản phẩm mới</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=1">Sản phẩm mới</a>
                     </div>
                     <div class="dropdow-menu-item">
-                      <a href="#">Giày thời trang</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=2">Giày thời trang</a>
                     </div>
                     <div class="dropdow-menu-item">
-                      <a href="#">Giày chạy bộ</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=3">Giày chạy bộ</a>
                     </div>
                     <div class="dropdow-menu-item">
-                      <a href="#">Giày luyện tập</a>
+                      <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=4">Giày luyện tập</a>
                     </div>
                   </div>
                   <div class="dropdow-menu-images">
@@ -254,21 +271,28 @@
               </div>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Trẻ em</a>
+              <a href="index.php?act=products_field&field=gender&condition=Trẻ Em" class="menu-link">Trẻ em</a>
             </li>
             <li class="menu-item">
               <div class="dropdow-menu">
-                <a href="#" class="menu-link">Thương hiệu <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="index.php?act=products" class="menu-link">Thương hiệu <i class="fa-solid fa-chevron-down"></i></a>
                 <div class="dropdow-menu-list">
                   <div class="dropdow-menu-category">
                     <div class="dropdow-menu-info">
                       <h2 class="dropdow-menu-title">A - Z</h2>
-                      <a href="#" class="dropdow-menu-link">Xem tất cả</a>
+                      <a href="index.php?act=products" class="dropdow-menu-link">Xem tất cả</a>
                     </div>
-                    <div class="dropdow-menu-item">
-                      <a href="#">ADIDAS</a>
-                    </div>
-                    <div class="dropdow-menu-item">
+                    <?php
+                    foreach ($list_brand as $lb) {
+                      extract($lb);
+                    ?>
+                      <div class="dropdow-menu-item">
+                        <a href="index.php?act=products_field&field=brand_name&condition=<?= $brand_name ?>"><?= $brand_name ?></a>
+                      </div>
+                    <?php
+                    }
+                    ?>
+                    <!-- <div class="dropdow-menu-item">
                       <a href="#">COLUMBIA</a>
                     </div>
                     <div class="dropdow-menu-item">
@@ -294,7 +318,7 @@
                     </div>
                     <div class="dropdow-menu-item">
                       <a href="#">UNDER ARMOR</a>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="dropdow-menu-images">
                     <a href="#" class="dropdow-menu-image">

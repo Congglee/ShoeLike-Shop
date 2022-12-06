@@ -6,8 +6,6 @@
   <div class="box box-primary">
     <div class="box-body">
       <form action="?btn_delete_all" method="post" class="table-responsive">
-        <button type="submit" class="btn btn-danger mb-1" id="deleteAll" onclick="">
-          Xóa mục đã chọn</button>
         <i class="ml-5">Sản phẩm:
           <b>
             <?= $list_detail_pro_color[0]['pro_name'] ?>
@@ -16,7 +14,6 @@
         <table width="100%" class="table table-hover table-bordered text-center">
           <thead class="thead-dark">
             <tr>
-              <th><input type="checkbox" id="select-all"></th>
               <th>Mã màu sản phẩm</th>
               <th>Màu sắc</th>
               <th> <a href="index.php?act=add_product" class="btn btn-success text-white">Thêm mới <i class="fas fa-plus-circle"></i></a></th>
@@ -30,7 +27,6 @@
               $delete_pro_color = "index.php?act=delete_pro_color&id_pro_color=" . $id_pro_color . "&id_pro=" . $id_pro;
             ?>
               <tr>
-                <td><input type="checkbox" name="" value=""></td>
                 <td><?= $id_pro_color ?></td>
                 <td><?= $color ?></td>
                 <td class="text-end">

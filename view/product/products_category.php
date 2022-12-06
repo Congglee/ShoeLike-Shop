@@ -10,8 +10,7 @@
         extract($lc);
       ?>
         <div class="products-col-item">
-          <input type="checkbox" class="products-col-input" id="<?= $id_cate ?>" />
-          <label for="<?= $id_cate ?>" class="products-col-label"><?= $cate_name ?></label>
+          <a href="index.php?act=products_field&field=id_cate&condition=<?= $id_cate ?>"><?= $cate_name ?></a>
         </div>
       <?php
       }

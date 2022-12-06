@@ -14,6 +14,13 @@ function getCommentByIdPro($id_pro)
   return $list_comment;
 }
 
+function listComment()
+{
+  $sql = "SELECT * FROM comment ORDER BY date DESC";
+  $list_comment = pdo_query($sql);
+  return $list_comment;
+}
+
 function listCommentAdmin()
 {
   $sql = "SELECT p.id_pro, p.pro_name, COUNT(*) quantity, MIN(cm.date) oldest_date, MAX(cm.date) newest_date FROM comment cm, product p WHERE cm.id_pro = p.id_pro GROUP BY p.id_pro, p.pro_name HAVING quantity > 0";

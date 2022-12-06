@@ -59,57 +59,57 @@
       <div class="gender-list" id="Male">
         <div class="gender-item" id="itemMale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=3" class="gender-img">
               <img src="././public/images/gender-male-1.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nam</a>
-            <a href="#" class="gender-type">Giày chạy bộ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=3" class="gender-name">Nam</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=3" class="gender-type">Giày chạy bộ</a>
           </div>
         </div>
         <div class="gender-item" id="itemMale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=2" class="gender-img">
               <img src="././public/images/gender-male-2.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nam</a>
-            <a href="#" class="gender-type">Giày thời trang</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=2" class="gender-name">Nam</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=2" class="gender-type">Giày thời trang</a>
           </div>
         </div>
         <div class="gender-item" id="itemMale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=4" class="gender-img">
               <img src="././public/images/gender-male-3.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nam</a>
-            <a href="#" class="gender-type">Giày luyện tập</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=4" class="gender-name">Nam</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=4" class="gender-type">Giày luyện tập</a>
           </div>
         </div>
         <div class="gender-item" id="itemMale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=5" class="gender-img">
               <img src="././public/images/gender-male-4.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nam</a>
-            <a href="#" class="gender-type">Giày bóng rổ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=5" class="gender-name">Nam</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=5" class="gender-type">Giày bóng rổ</a>
           </div>
         </div>
         <div class="gender-item" id="itemMale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=6" class="gender-img">
               <img src="././public/images/gender-male-5.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nam</a>
-            <a href="#" class="gender-type">Giày bóng đá</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=6" class="gender-name">Nam</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nam&field2=id_cate&condition2=6" class="gender-type">Giày bóng đá</a>
           </div>
         </div>
       </div>
@@ -117,57 +117,57 @@
       <div class="gender-list" id="Female">
         <div class="gender-item" id="itemFemale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=3" class="gender-img">
               <img src="././public/images/gender-female-1.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nữ</a>
-            <a href="#" class="gender-type">Giày chạy bộ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=3" class="gender-name">Nữ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=3" class="gender-type">Giày chạy bộ</a>
           </div>
         </div>
         <div class="gender-item" id="itemFemale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=2" class="gender-img">
               <img src="././public/images/gender-female-2.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nữ</a>
-            <a href="#" class="gender-type">Giày thời trang</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=2" class="gender-name">Nữ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=2" class="gender-type">Giày thời trang</a>
           </div>
         </div>
         <div class="gender-item" id="itemFemale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=4" class="gender-img">
               <img src="././public/images/gender-female-3.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nữ</a>
-            <a href="#" class="gender-type">Giày luyện tập</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=4" class="gender-name">Nữ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=4" class="gender-type">Giày luyện tập</a>
           </div>
         </div>
         <div class="gender-item" id="itemFemale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=5" class="gender-img">
               <img src="././public/images/gender-female-4.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nữ</a>
-            <a href="#" class="gender-type">Giày bóng rổ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=5" class="gender-name">Nữ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=5" class="gender-type">Giày bóng rổ</a>
           </div>
         </div>
         <div class="gender-item" id="itemFemale">
           <div class="gender-image">
-            <a href="#" class="gender-img">
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=6" class="gender-img">
               <img src="././public/images/gender-female-5.webp" alt="" />
             </a>
           </div>
           <div class="gender-content">
-            <a href="#" class="gender-name">Nữ</a>
-            <a href="#" class="gender-type">Giày bóng đá</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=6" class="gender-name">Nữ</a>
+            <a href="index.php?act=products_field&field=gender&condition=Nữ&field2=id_cate&condition2=6" class="gender-type">Giày bóng đá</a>
           </div>
         </div>
       </div>

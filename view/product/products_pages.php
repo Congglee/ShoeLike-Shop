@@ -1,4 +1,5 @@
 <?php
+// var_dump($param);
 if ($_SESSION['page'] > 1) {
   $prev_page = $_SESSION['page'] - 1;
 ?>

@@ -28,117 +28,25 @@
 
   <section class="products products-container">
     <aside class="aside">
-      <div class="products-col">
-        <div class="products-col-header">
-          <i class="fa-sharp fa-solid fa-caret-down"></i>
-          <h3 class="products-col-heading">Giới tính</h3>
-        </div>
-        <div class="products-col-list">
-          <form action="" class="product-col-form">
-            <div class="products-col-item">
-              <input type="checkbox" class=" products-col-input" id="male" />
-              <label for="male" class="products-col-label">Nam</label>
-            </div>
-            <div class=" products-col-item">
-              <input type="checkbox" class="products-col-input" id="female" />
-              <label for="female" class="products-col-label">Nữ</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="unisex" />
-              <label for="unisex" class="products-col-label">Unisex</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="male-boy" />
-              <label for="male-boy" class="products-col-label">Bé trai</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="female-girl" />
-              <label for="female-girl" class="products-col-label">Bé gái</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="kid" />
-              <label for="kid" class="products-col-label">Trẻ em</label>
-            </div>
-          </form>
-        </div>
-      </div>
+      <?php
+      include "products_gender.php";
+      ?>
       <?php
       include "products_category.php";
       ?>
-      <div class="products-col">
-        <div class="products-col-header">
-          <i class="fa-sharp fa-solid fa-caret-down"></i>
-          <h3 class="products-col-heading">Kích thước</h3>
-        </div>
-        <div class="products-col-list">
-          <form action="" class="product-col-form">
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="34" />
-              <label for="34" class="products-col-label">34</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="35" />
-              <label for="35" class="products-col-label">35</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="36" />
-              <label for="36" class="products-col-label">36</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="37" />
-              <label for="37" class="products-col-label">37</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="38" />
-              <label for="38" class="products-col-label">38</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="39" />
-              <label for="39" class="products-col-label">39</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="40" />
-              <label for="40" class="products-col-label">40</label>
-            </div>
-          </form>
-        </div>
-      </div>
+      <?php
+      include "products_size.php";
+      ?>
       <?php
       include "products_brand.php";
       ?>
-      <div class="products-col">
-        <div class="products-col-header">
-          <i class="fa-sharp fa-solid fa-caret-down"></i>
-          <h3 class="products-col-heading">Giá</h3>
-        </div>
-        <div class="products-col-list">
-          <form action="" class="product-col-form">
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="500-1000" />
-              <label for="500-1000" class="products-col-label">500.000đ - 1.000.000đ</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="1000-2000" />
-              <label for="1000-2000" class="products-col-label">1.000.000đ - 2.000.000đ</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="2000-3000" />
-              <label for="2000-3000" class="products-col-label">2.000.000đ - 3.000.000đ</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="3000-4000" />
-              <label for="3000-4000" class="products-col-label">3.000.000đ - 4.000.000đ</label>
-            </div>
-            <div class="products-col-item">
-              <input type="checkbox" class="products-col-input" id="4000-5000" />
-              <label for="4000-5000" class="products-col-label">4.000.000đ - 5.000.000đ</label>
-            </div>
-          </form>
-        </div>
-      </div>
+      <?php
+      include "products_price.php";
+      ?>
     </aside>
+
     <article class="article">
-      <div class="products-list">
+      <div class="products-list filter_data">
         <?php
         $param = "";
         foreach ($list_pro as $lp) {

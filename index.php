@@ -13,6 +13,7 @@ include "model/stat.php"; // thống kê
 include "model/user.php";
 
 $list_cate = listCategory();
+$list_brand = listBrand();
 include "view/layout/header.php";
 
 if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
@@ -30,16 +31,39 @@ if (isset($_GET['act'])) {
     case "products_field":
       $list_cate = listCategory();
       $list_brand = listBrand();
-      if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['sort']) && ($_GET['sort'] != "")) {
-        $field = isset($_GET['field']) ? $_GET['field'] : "";
+      if (isset($_GET['field_sort']) && ($_GET['field_sort'] != "") && isset($_GET['sort']) && ($_GET['sort'] != "")) {
+        $field_sort = isset($_GET['field_sort']) ? $_GET['field_sort'] : "";
         $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
-        $list_pro_field = listProductsFieldSort("$field", "$sort", 20);
+        $list_pro_field = listProductsFieldSort("$field_sort", "$sort", 20);
       } else if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['condition']) && ($_GET['condition'] != "")) {
         $field = isset($_GET['field']) ? $_GET['field'] : "";
         $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
-        $list_pro_field = listProductsFieldConditions("$field", $condition, 20);
+        $field2 = isset($_GET['field2']) ? $_GET['field2'] : "";
+        $condition2 = isset($_GET['condition2']) ? $_GET['condition2'] : "";
+        $list_pro_field = listProductsFieldConditions("$field", $condition, $field2, $condition2, 20);
+        if (isset($_GET['sort_field']) && ($_GET['sort_field'] != "") && isset($_GET['sort']) && ($_GET['sort'] != "")) {
+          $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
+          $sort_field = isset($_GET['sort_field']) ? $_GET['sort_field'] : "";
+          $list_pro_field = listProductsFieldConditionsSort("$field", $condition, $field2, $condition2, $sort_field, $sort, 20);
+        }
       }
+      // else if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['condition']) && ($_GET['condition'] != "") && isset($_GET['field2']) && ($_GET['field2'] != "") && isset($_GET['condition2']) && ($_GET['condition2'] != "")) {
+      //   $field = isset($_GET['field']) ? $_GET['field'] : "";
+      //   $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
+      //   $field2 = isset($_GET['field2']) ? $_GET['field2'] : "";
+      //   $condition2 = isset($_GET['condition2']) ? $_GET['condition2'] : "";
+      //   $list_pro_field = listProductsFieldConditions("$field", $condition, "$field2", $condition2, 20);
+      // }
       include "view/product/products_field.php";
+      break;
+
+    case "product_keyword":
+      $list_cate = listCategory();
+      $list_brand = listBrand();
+      $keyword = isset($_POST['keyword']) ? $_POST['keyword'] : "";
+      // $_SESSION['keyword'] = $keyword;
+      $list_pro_keyword = listProductKeyword($keyword, 20);
+      include "view/product/products_keyword.php";
       break;
 
     case "product_detail":
@@ -124,10 +148,9 @@ if (isset($_GET['act'])) {
       }
       if (isset($_SESSION['user'])) {
         $id_user = $_SESSION['user']['id_user'];
+        $user = getUserById($id_user);
+        $_SESSION['user_bill'] = $user;
       }
-      $user = getUserById($id_user);
-
-      $_SESSION['user_bill'] = $user;
       include "view/cart/cart.php";
       break;
 

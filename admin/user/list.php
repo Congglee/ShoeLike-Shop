@@ -6,12 +6,9 @@
     <div class="box box-primary">
       <div class="box-body">
         <form action="?btn_delete_all" method="post" class="table-responsive">
-          <button type="submit" class="btn btn-danger mb-1" id="deleteAll" onclick="">
-            Xóa mục đã chọn</button>
           <table width="100%" class="table table-hover table-bordered text-center">
             <thead class="thead-dark">
               <tr>
-                <th><input type="checkbox" id="select-all"></th>
                 <th>Mã tài khoản</th>
                 <th>Mật khẩu</th>
                 <th>Ảnh</th>
@@ -38,7 +35,6 @@
                 }
               ?>
                 <tr>
-                  <td><input type="checkbox" name="" value=""></td>
                   <td><?= $id_user ?></td>
                   <td><?= $password ?></td>
                   <td><?= $user_img ?></td>

@@ -1236,9 +1236,30 @@ h6 {
   text-transform: uppercase;
   line-height: 1.3333333333;
 }
+.products-col-item {
+  padding-left: 20px;
+}
 .products-col-item:not(:last-child) {
   cursor: pointer;
   margin-bottom: 15px;
+}
+.products-col-item a {
+  color: #13283f;
+  font-size: 15px;
+  transition: all 0.35s linear;
+}
+.products-col-item a:hover {
+  transition: all 0.35s linear;
+  color: #569d1b;
+  font-weight: 600;
+}
+.products-col-item a:active {
+  font-weight: 700;
+  color: #13283f;
+}
+.products-col-item a:visited {
+  color: #13283f;
+  font-weight: 700;
 }
 .products-col-input {
   display: none;
@@ -1253,7 +1274,6 @@ h6 {
   cursor: pointer;
   padding-left: 24px;
   color: #13283f;
-  font-size: 14px;
 }
 .products-col-label::before {
   content: "";

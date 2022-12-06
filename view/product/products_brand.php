@@ -10,8 +10,7 @@
         extract($lb);
       ?>
         <div class="products-col-item">
-          <input type="checkbox" class="products-col-input" id="<?= $brand_name ?>" />
-          <label for="<?= $brand_name ?>" class="products-col-label"><?= $brand_name ?></label>
+          <a href="index.php?act=products_field&field=brand_name&condition=<?= $brand_name ?>"><?= $brand_name ?></a>
         </div>
       <?php
       }

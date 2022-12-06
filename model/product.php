@@ -17,15 +17,22 @@ function listProduct($limit)
   return $list_pro;
 }
 
-function listProductCart($arrange)
+function listProductKeyword($keyword, $limit)
 {
-  $sql = "SELECT * FROM product p, product_size ps WHERE p.id_pro = ps.id_pro AND p.id_pro IN ($arrange)";
-  // var_dump($sql);
-  $list_pro_cart = pdo_query($sql);
-  return $list_pro_cart;
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
+  }
+  $current_page = $_GET['page'];
+  $_SESSION['page'] = $_GET['page'];
+  $offset = ($current_page - 1) * $limit;
+  $total_pro = pdo_query_value("SELECT count(*) FROM product WHERE pro_name LIKE '%" . $keyword . "%'");
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND color <> '' AND size <> '' AND pro_name LIKE '%" . $keyword . "%' GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC LIMIT $limit OFFSET $offset";
+  $list_pro_keyword = pdo_query($sql);
+  return $list_pro_keyword;
 }
 
-function listProductsFieldSort($field, $sort, $limit)
+function listProductsFieldSort($field_sort, $sort, $limit)
 {
   if (!isset($_GET['page'])) {
     $_GET['page'] = 1;
@@ -37,17 +44,17 @@ function listProductsFieldSort($field, $sort, $limit)
   $_SESSION['total_pages'] = ceil($total_pro / $limit);
 
   $condition = "";
-  $field = isset($_GET['field']) ? $_GET['field'] : "";
+  $field_sort = isset($_GET['field_sort']) ? $_GET['field_sort'] : "";
   $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
-  if (!empty($field) && !empty($sort)) {
-    $condition = "ORDER BY `p`.`" . $field . "` " . $sort;
+  if (!empty($field_sort) && !empty($sort)) {
+    $condition = "ORDER BY `p`.`" . $field_sort . "` " . $sort;
   }
-  $sql = "SELECT * FROM product p, product_color pc, product_size ps WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro  AND color <> '' AND size <> '' GROUP BY p.id_pro, p.pro_name $condition LIMIT $limit OFFSET $offset";
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps, product_brand pb WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND p.id_brand = pb.id_brand AND color <> '' AND size <> '' GROUP BY p.id_pro, p.pro_name $condition LIMIT $limit OFFSET $offset";
   $list_pro_field_sort = pdo_query($sql);
   return $list_pro_field_sort;
 }
 
-function listProductsFieldConditions($field, $condition, $limit)
+function listProductsFieldConditions($field, $condition, $field2, $condition2, $limit)
 {
   if (!isset($_GET['page'])) {
     $_GET['page'] = 1;
@@ -55,17 +62,95 @@ function listProductsFieldConditions($field, $condition, $limit)
   $current_page = $_GET['page'];
   $_SESSION['page'] = $_GET['page'];
   $offset = ($current_page - 1) * $limit;
-  $total_pro = pdo_query_value("SELECT count(*) FROM product");
-  $_SESSION['total_pages'] = ceil($total_pro / $limit);
 
   $cond = "";
   $field = isset($_GET['field']) ? $_GET['field'] : "";
   $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
-  if (!empty($field) && !empty($condition)) {
-    $cond = "$field = " . $condition;
+  $field2 = isset($_GET['field2']) ? $_GET['field2'] : "";
+  $condition2 = isset($_GET['condition2']) ? $_GET['condition2'] : "";
+  if (!empty($field) && !empty($condition && $field != "brand_name" && $field != "size")) {
+    $cond = "p.$field = " . "'$condition'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $cond");
+    if (isset($_GET['sort']) && ($_GET['sort'] != "")) {
+      $cond = "p.$field <> " . "'$condition'";
+    }
   }
-  $sql = "SELECT * FROM product p, product_color pc, product_size ps, product_brand pb WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND p.id_brand = pb.id_brand AND color <> '' AND size <> '' AND $cond GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC LIMIT $limit OFFSET $offset";
+  if ($field == "size") {
+    $cond = "$field = " . "'$condition'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb, product_size ps WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND p.id_pro = ps.id_pro AND $cond");
+  }
+  if ($field == "brand_name") {
+    $cond = "$field = " . "'$condition'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $field = '$condition'");
+  }
+  if ($field == "price_sale") {
+    if (isset($_GET['sort']) && ($_GET['sort'] != "")) {
+      $cond = "p.$field <> " . "'$condition'";
+    }
+    $cond =  "p.$field <> " . "'$condition'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $field <> '$condition'");
+  }
+  if ($field == "price" && $field2 == "price") {
+    $cond = "$field >= " . "'$condition'" . " AND $field2 <= " . "'$condition2'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $cond");
+  }
+  if (!empty($field2) && !empty($condition2) && $field != "size" && $field != "brand_name" && $field != "price") {
+    $cond = "p.$field = " . "'$condition'" . " AND p.$field2 = " . "'$condition2'";
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND p.$field = '$condition' AND p.$field2 = '$condition2'");
+  }
+  // $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND p.$field = '$condition'");
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps, product_brand pb, category ca WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND p.id_brand = pb.id_brand AND p.id_cate = ca.id_cate AND color <> '' AND size <> '' AND $cond GROUP BY p.id_pro, p.pro_name ORDER BY p.id_pro DESC LIMIT $limit OFFSET $offset";
   $list_pro_condition = pdo_query($sql);
+  return $list_pro_condition;
+}
+
+function listProductsFieldConditionsSort($field, $condition, $field2, $condition2, $sort_field, $sort, $limit)
+{
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
+  }
+  $current_page = $_GET['page'];
+  $_SESSION['page'] = $_GET['page'];
+  $offset = ($current_page - 1) * $limit;
+
+  $cond = "";
+  $field = isset($_GET['field']) ? $_GET['field'] : "";
+  $condition = isset($_GET['condition']) ? $_GET['condition'] : "";
+  $field2 = isset($_GET['field2']) ? $_GET['field2'] : "";
+  $condition2 = isset($_GET['condition2']) ? $_GET['condition2'] : "";
+  $sort = isset($_GET['sort']) ? $_GET['sort'] : "";
+  $sort_field = isset($_GET['sort_field']) ? $_GET['sort_field'] : "";
+  if (!empty($field) && !empty($condition) && !empty($sort) && $field != "brand_name" && $field != "size") {
+    $cond = "p.$field = " . "'$condition'";
+    $orderBy = "ORDER BY `p`.`" . $sort_field . "` " . $sort;
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND p.$field = '$condition'");
+  }
+  if ($field == "brand_name") {
+    $cond = "$field = " . "'$condition'";
+    $orderBy = "ORDER BY `p`.`" . $sort_field . "` " . $sort;
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $field = '$condition'");
+  }
+  if ($field == "size") {
+    $cond = "$field = " . "'$condition'";
+    $orderBy = "ORDER BY `p`.`" . $sort_field . "` " . $sort;
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb, product_size ps WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND p.id_pro = ps.id_pro AND $field = '$condition'");
+  }
+  if ($field == "price_sale") {
+    $cond =  "p.$field <> " . "'$condition'";
+    $orderBy = "ORDER BY `p`.`" . $sort_field . "` " . $sort;
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND $field <> '$condition'");
+  }
+  if (!empty($field2) && !empty($condition2)) {
+    $cond = "p.$field = " . "'$condition'" . " AND p.$field2 = " . "'$condition2'";
+    $orderBy = "ORDER BY `p`.`" . $sort_field . "` " . $sort;
+    $total_pro = pdo_query_value("SELECT count(*) FROM product p, category ca, product_brand pb WHERE p.id_cate = ca.id_cate AND p.id_brand = pb.id_brand AND 
+    $field = '$condition' AND p.$field2 = '$condition2'");
+  }
+  $_SESSION['total_pages'] = ceil($total_pro / $limit);
+  $sql = "SELECT * FROM product p, product_color pc, product_size ps, product_brand pb, category ca WHERE p.id_pro = pc.id_pro AND p.id_pro = ps.id_pro AND p.id_brand = pb.id_brand AND p.id_cate = ca.id_cate AND color <> '' AND size <> '' AND $cond GROUP BY p.id_pro, p.pro_name $orderBy LIMIT $limit OFFSET $offset";
+  $list_pro_condition = pdo_query($sql);
+  // var_dump($sql);
   return $list_pro_condition;
 }
 

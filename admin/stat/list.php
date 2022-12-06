@@ -4,7 +4,6 @@
   </div>
   <div class="box box-primary">
     <div class="box-body">
-      <input type="button" class="btn btn-danger mb-1" value="Xóa các mục đã chọn">
       <table width="100%" class="table table-hover table-bordered text-center">
         <thead class="thead-dark">
           <tr>

@@ -95,9 +95,6 @@
             <button class="cart-checkout-submit">
               <a href="index.php?act=products">Tiếp tục mua hàng</a>
             </button>
-            <button class="cart-checkout-submit" name="btn_update_cart">
-              <a href="#">Cập nhật giỏ hàng</a>
-            </button>
           </div>
         </form>
 

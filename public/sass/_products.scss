@@ -66,9 +66,28 @@
       line-height: calc(20 / 15);
     }
     &-item {
+      padding-left: 20px;
       &:not(:last-child) {
         cursor: pointer;
         margin-bottom: 15px;
+      }
+      a {
+        color: $text-color;
+        font-size: 15px;
+        transition: all 0.35s linear;
+        &:hover {
+          transition: all 0.35s linear;
+          color: $green-dark-color;
+          font-weight: 600;
+        }
+        &:active {
+          font-weight: 700;
+          color: $heading-color-primary;
+        }
+        &:visited {
+          color: $text-color;
+          font-weight: 700;
+        }
       }
     }
     &-input {
@@ -85,7 +104,6 @@
       cursor: pointer;
       padding-left: 24px;
       color: $text-color;
-      font-size: 14px;
       &::before {
         content: "";
         width: 16px;

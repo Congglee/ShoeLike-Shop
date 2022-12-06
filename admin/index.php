@@ -496,10 +496,18 @@ if (isset($_GET['act'])) {
       break;
 
     default:
+      $category = count(listCategory());
+      $product = count(listProductAdmin());
+      $user = count(listUser());
+      $comment = count(listComment());
       include "layout/home.php";
       break;
   }
 } else {
+  $category = count(listCategory());
+  $product = count(listProductAdmin());
+  $user = count(listUser());
+  $comment = count(listComment());
   include "layout/home.php";
 }
 
