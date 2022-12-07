@@ -5,6 +5,7 @@
     <div class="alert">
         <?php
             if(isset($alert)&&($alert!="")) echo $alert;
+            
         ?>
     </div>
     <div class="form-add-pro">
