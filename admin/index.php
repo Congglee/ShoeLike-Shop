@@ -10,6 +10,8 @@ include "../model/product.php";
 include "../model/stat.php";
 include "../model/user.php";
 
+$order_unfullfill = count(showAllOrderUnFullFill());
+$order_delivered = count(showAllOrderDelivered());
 include "layout/header.php";
 
 if (isset($_GET['act'])) {
@@ -431,6 +433,16 @@ if (isset($_GET['act'])) {
       include "order/list.php";
       break;
 
+    case "list_order_unfullfill":
+      $list_order_unfullfill = showAllOrderUnFullFill();
+      include "order/list_2.php";
+      break;
+
+    case "list_order_delivered":
+      $list_order_delivered = showAllOrderDelivered();
+      include "order/list_3.php";
+      break;
+
     case "update_order":
       if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
         $order = getUserOrderById($_GET['id_order']);
@@ -500,6 +512,7 @@ if (isset($_GET['act'])) {
       $product = count(listProductAdmin());
       $user = count(listUser());
       $comment = count(listComment());
+      $order = count(showAllOrder(0));
       include "layout/home.php";
       break;
   }
@@ -508,6 +521,7 @@ if (isset($_GET['act'])) {
   $product = count(listProductAdmin());
   $user = count(listUser());
   $comment = count(listComment());
+  $order = count(showAllOrder(0));
   include "layout/home.php";
 }
 

@@ -135,7 +135,7 @@ $product_detail_image = $img_path_view . $image;
             <h4 class="product-detail-heading">Số lượng</h4>
             <div class="product-detail-work">
               <div class="product-detail-quantity">
-                <input type="number" name="quantity[<?= $id_pro ?>]" id="" value="1" step="1" min="1" />
+                <input type="number" name="quantity" id="" value="1" step="1" min="1" />
               </div>
               <input type="hidden" name="id_pro" value="<?= $id_pro ?>">
               <input type="hidden" name="pro_name" value="<?= $pro_name ?>">

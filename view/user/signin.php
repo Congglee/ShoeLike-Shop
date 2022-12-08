@@ -37,7 +37,7 @@
               <label for="remember" class="form-remember-label">Nhớ tài khoản</label>
             </div>
 
-            <a href="#" class="form-forgot">Quên mật khẩu?</a>
+            <a href="index.php?act=forgot_password" class="form-forgot">Quên mật khẩu?</a>
           </div>
           <button class="form-submit sigin-submit" name="btn_submit">Đăng nhập</button>
         </form>

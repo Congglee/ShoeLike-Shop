@@ -102,7 +102,7 @@
                         <?php
                         } else {
                         ?>
-                          <a href="<?= $user_delete_order ?>" onclick="return confirm('Bạn có muốn xóa đơn hàng này không ?' )" class="user-bill-remove">Hủy</a>
+                          <a href="<?= $user_delete_order ?>" onclick="return confirm('Bạn có muốn hủy đơn hàng này không ?' )" class="user-bill-remove">Hủy</a>
                         <?php
                         }
                         ?>

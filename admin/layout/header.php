@@ -115,7 +115,20 @@
           <a href="index.php?act=stat"><i class="fas fa-chart-line"></i></i>Thống kê</a>
         </li>
         <li>
-          <a href="index.php?act=list_order"><i class="fas fa-shipping-fast"></i></i>Đơn hàng</a>
+          <a href="#order" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Đơn hàng
+            <i class="fas fa-angle-right float-xl-right"></i>
+          </a>
+          <ul class="collapse list-unstyled" id="order">
+            <li>
+              <a href="index.php?act=list_order"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_order_unfullfill"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng chưa thực hiện (<?= $order_unfullfill ?>)</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_order_delivered"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng đã giao (<?= $order_delivered ?>)</a>
+            </li>
+          </ul>
         </li>
 
         <li>

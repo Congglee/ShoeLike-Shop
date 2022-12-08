@@ -38,6 +38,15 @@
           <i class="fas fa-comments" style="font-size: 80px"></i>
         </div>
       </div>
+      <div class="card-single col d-flex justify-content-around bg-secondary text-white py-5 ml-3">
+        <div>
+          <h1 class="font-weight-bold"><?= $order ?></h1>
+          <span>Đơn hàng</span>
+        </div>
+        <div>
+          <i class="fas fa-cart-plus" style="font-size: 80px"></i>
+        </div>
+      </div>
     </div>
   </div>
 </div>

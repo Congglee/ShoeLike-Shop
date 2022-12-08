@@ -45,6 +45,20 @@ function showAllOrder($id_user)
   return $list_order;
 }
 
+function showAllOrderUnFullFill()
+{
+  $sql = "SELECT * FROM `order` WHERE status = 0 ORDER BY date DESC";
+  $list_order = pdo_query($sql);
+  return $list_order;
+}
+
+function showAllOrderDelivered()
+{
+  $sql = "SELECT * FROM `order` WHERE status = 3 ORDER BY date DESC";
+  $list_order = pdo_query($sql);
+  return $list_order;
+}
+
 function detailOrderTotal($id_order)
 {
   $sql = "SELECT * FROM `order_total` WHERE id_order = $id_order";

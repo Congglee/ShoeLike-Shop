@@ -343,6 +343,48 @@ if (isset($_GET['act'])) {
       header("Location: index.php");
       break;
 
+    case "forgot_password":
+      if (isset($_POST['btn_submit'])) {
+        $id_user = $_POST['id_user'];
+        $email = $_POST['email'];
+        $user = getUserById($id_user);
+        if ($user) {
+          if ($user['email'] != $email) {
+            $message = "Sai email đăng nhập !";
+            $alert = "alert-fail";
+          } else {
+            $_SESSION['user_2'] = $user;
+            header("Location: index.php?act=get_password");
+            $alert = "alert-fail";
+          }
+        } else {
+          $message = "Sai tên đăng nhập !";
+          $alert = "alert-fail";
+        }
+      }
+      include "view/user/forgot_password.php";
+      break;
+
+    case "get_password":
+      if (isset($_POST['btn_submit'])) {
+        $id_user = $_POST['id_user'];
+        $password2 = $_POST['password2'];
+        $password3 = $_POST['password3'];
+        if (strlen($password2) < 6) {
+          $message = "Vui lòng nhập mật khẩu có từ 6 ký tự trở lên !";
+          $alert = "alert-fail";
+        } else if ($password2 != $password3) {
+          $message = "Vui lòng xác nhận lại mật khẩu mới !";
+          $alert = "alert-fail";
+        } else {
+          changePassword($id_user, $password2);
+          $message = "Đổi mật khẩu thành công";
+          $alert = "alert-success";
+        }
+      }
+      include "view/user/get_password.php";
+      break;
+
     default:
       $list_pro_new = listProductNew();
       $list_pro_feature = listProductFeature();

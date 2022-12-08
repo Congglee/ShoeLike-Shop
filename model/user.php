@@ -78,6 +78,12 @@ function updateUserByAdmin($id_user, $password, $image, $name, $phone, $email, $
   pdo_execute($sql);
 }
 
+function changePassword($id_user, $password2)
+{
+  $sql = "UPDATE user SET password = '$password2' WHERE id_user = '$id_user'";
+  pdo_execute($sql);
+}
+
 function deleteUser($id_user)
 {
   $sql = "DELETE FROM user WHERE id_user = '$id_user'";

@@ -58,9 +58,9 @@
                 <input type="radio" name="payment" id="mbbank" value="1" checked>
                 <label for="mbbank">Chuyển khoản ngân hàng: MB-Bank - Ngân hàng quân đội</label>
               </div>
-              <span>Số tài khoản: 0371000510585</span>
+              <span>Số tài khoản: 0953418062003</span>
               <span>Tên tài khoản: LE THANH CONG</span>
-              <span>Nội dung chuyển khoản: PAYSHOELIKE - tài khoản email</span>
+              <span>Nội dung chuyển khoản: PAYSHOELIKE<?= rand(0, 9999) ?> - tài khoản email</span>
             </div>
             <div class="ship-info-method-payment-list ship-info-confirm-item">
               <div class="ship-info-method-radio2">
