@@ -99,7 +99,7 @@
               ?>
             <?php
             }
-          } else if ($field_sort == "id_pro" && $sort == "desc") {
+          } else if ($field_sort == "id_pro" && $sort == "asc") {
             foreach ($list_pro_field as $lpf) {
               extract($lpf);
             ?>

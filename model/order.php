@@ -1,4 +1,5 @@
 <?php
+
 function insertOrder($id_bill, $total_order, $payment, $id_user, $date, $note,  $order_name, $order_address, $order_email, $order_phone)
 {
   $sql = "INSERT INTO `order`(id_bill, total_order, payment, id_user, date, note, order_name, order_address, order_email, order_phone) VALUES('$id_bill', '$total_order', '$payment', '$id_user', '$date', '$note', '$order_name', '$order_address', '$order_email', '$order_phone')";

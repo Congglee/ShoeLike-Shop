@@ -353,6 +353,52 @@
         color: $secondary-color;
       }
     }
+    &-term {
+      p {
+        font-size: 14px;
+        line-height: 1.7857142857;
+      }
+      ul {
+        padding: 0 40px;
+        li {
+          color: #13283f;
+          font-size: 14px;
+          line-height: 1.7857142857;
+        }
+      }
+    }
+    &-policy {
+      p {
+        font-size: 14px;
+        line-height: 1.7857142857;
+      }
+      &-red {
+        color: #e91b1b;
+        font-weight: 700;
+      }
+      &-bold {
+        font-weight: 700;
+      }
+      &-italic {
+        font-style: italic;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+      a {
+        color: #13283f;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+      ul {
+        padding: 0 40px;
+        li {
+          color: #13283f;
+          font-size: 14px;
+          line-height: 1.7857142857;
+        }
+      }
+    }
     &-description {
       img {
         width: 100%;

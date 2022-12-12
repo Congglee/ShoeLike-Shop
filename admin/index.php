@@ -507,6 +507,10 @@ if (isset($_GET['act'])) {
       include "stat/list.php";
       break;
 
+    case "chart":
+      include "stat/chart_order.php";
+      break;
+
     default:
       $category = count(listCategory());
       $product = count(listProductAdmin());

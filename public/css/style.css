@@ -997,6 +997,48 @@ h6 {
 .product-info-btn:hover {
   color: #6bd918;
 }
+.product-info-term p {
+  font-size: 14px;
+  line-height: 1.7857142857;
+}
+.product-info-term ul {
+  padding: 0 40px;
+}
+.product-info-term ul li {
+  color: #13283f;
+  font-size: 14px;
+  line-height: 1.7857142857;
+}
+.product-info-policy p {
+  font-size: 14px;
+  line-height: 1.7857142857;
+}
+.product-info-policy-red {
+  color: #e91b1b;
+  font-weight: 700;
+}
+.product-info-policy-bold {
+  font-weight: 700;
+}
+.product-info-policy-italic {
+  font-style: italic;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.product-info-policy a {
+  color: #13283f;
+}
+.product-info-policy a:hover {
+  color: #6bd918;
+}
+.product-info-policy ul {
+  padding: 0 40px;
+}
+.product-info-policy ul li {
+  color: #13283f;
+  font-size: 14px;
+  line-height: 1.7857142857;
+}
 .product-info-description img {
   width: 100%;
   height: 100%;
@@ -1827,6 +1869,23 @@ h6 {
 .cart-quantity {
   text-align: center;
 }
+.cart-quantity-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 10px;
+}
+.cart-quantity-submit button {
+  background-color: #fff;
+  color: #6bd918;
+}
+.cart-quantity-submit button:hover {
+  color: #ec3d17;
+}
+.cart-quantity-submit button i {
+  font-weight: 600;
+  font-size: 18px;
+}
 .cart-input {
   border: solid 1px #ccc;
   width: 65px;
@@ -1835,7 +1894,7 @@ h6 {
   background-color: #fff;
   color: #86919c;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 5px;
 }
 .cart-total {
@@ -2487,6 +2546,48 @@ h6 {
 .user-bill-disabled:hover {
   background-color: #9b9b9b;
   color: #fff;
+}
+
+.about-container {
+  display: flex;
+  gap: 0 30px;
+  margin-bottom: 90px;
+}
+.about-aside {
+  flex-shrink: 0;
+  width: 25%;
+}
+.about-article {
+  flex: 1;
+  width: 75%;
+}
+.about-item {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: solid 1px #e8e9eb;
+}
+.about-link {
+  color: #13283f;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.about-link.active {
+  color: #6bd918;
+  font-weight: 700;
+}
+.about-link:hover {
+  color: #6bd918;
+  font-weight: 700;
+}
+.about-title {
+  color: #13283f;
+  text-transform: uppercase;
+  font-weight: 550;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-bottom: solid 1px #e8e9eb;
+  padding-bottom: 10px;
 }
 
 .footer-top {

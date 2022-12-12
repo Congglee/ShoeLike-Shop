@@ -61,6 +61,23 @@
   }
   &-quantity {
     text-align: center;
+    &-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0 10px;
+      button {
+        background-color: $white-color;
+        color: $secondary-color;
+        &:hover {
+          color: $text-sale-color;
+        }
+        i {
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+    }
   }
   &-input {
     border: solid 1px #ccc;
@@ -70,7 +87,7 @@
     background-color: $white-color;
     color: $heading-color-secondary;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 5px;
   }
   &-total {

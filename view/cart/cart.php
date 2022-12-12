@@ -13,7 +13,7 @@
     <div class="container">
       <h3 class="cart-title heading">Giỏ hàng của bạn</h3>
       <div class="cart-container">
-        <form action="" class="cart-table-form" method="post">
+        <div class="cart-table-form">
           <table class="cart-table">
             <thead class="cart-thead">
               <tr>
@@ -33,6 +33,7 @@
                 $into_money = $cart[3] * $cart[4];
                 $total += $into_money;
                 $delete_cart = "index.php?act=delete_cart&id_cart=" . $i;
+                $update_cart = "index.php?act=update_cart&id_cart=" . $i;
               ?>
                 <tr>
                   <td class="cart-info">
@@ -44,9 +45,15 @@
                   </td>
                   <td class="cart-price"><?= number_format($cart[3], "0", ",", ".") ?>đ</td>
                   <td class="cart-quantity">
-                    <input type="number" name="quantity" id="" min="1" step="1" value="<?= $cart[4] ?>" class="cart-input" disabled />
+                    <form action="<?= $update_cart ?>" class="cart-quantity-submit" method="post">
+                      <input type="number" name="quantity" id="" min="1" step="1" value="<?= $cart[4] ?>" class="cart-input" />
+                      <button name="btn_update_cart">
+                        <i class="fa-regular fa-rotate-right"></i>
+                      </button>
+                    </form>
                   </td>
-                  <td class="cart-total"><?= number_format($into_money, "0", ",", ".") ?>đ</td>
+                  <td class=" cart-total"><?= number_format($into_money, "0", ",", ".") ?>đ
+                  </td>
                   <td class="cart-remove">
                     <a href="<?= $delete_cart ?>">
                       <i class="fa fa-times"></i>
@@ -96,7 +103,7 @@
               <a href="index.php?act=products">Tiếp tục mua hàng</a>
             </button>
           </div>
-        </form>
+        </div>
 
         <div class="cart-checkout">
           <div class="cart-checkout-header">

@@ -1,0 +1,43 @@
+.about {
+  &-container {
+    display: flex;
+    gap: 0 30px;
+    margin-bottom: 90px;
+  }
+  &-aside {
+    flex-shrink: 0;
+    width: 25%;
+  }
+  &-article {
+    flex: 1;
+    width: 75%;
+  }
+  &-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: solid 1px $border-color;
+  }
+  &-link {
+    color: $text-color;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    &.active {
+      color: $secondary-color;
+      font-weight: 700;
+    }
+    &:hover {
+      color: $secondary-color;
+      font-weight: 700;
+    }
+  }
+  &-title {
+    color: $text-color;
+    text-transform: uppercase;
+    font-weight: 550;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-bottom: solid 1px $border-color;
+    padding-bottom: 10px;
+  }
+}

@@ -132,6 +132,18 @@ if (isset($_GET['act'])) {
       }
       break;
 
+    case "update_cart":
+      if (isset($_POST['btn_update_cart'])) {
+        $cart_id = $_GET['id_cart'];
+        $quantity = $_POST['quantity'];
+
+        if (isset($_GET['id_cart'])) {
+          $_SESSION['cart'][$cart_id][4] = $quantity;
+        }
+      }
+      header("Location: index.php?act=cart");
+      break;
+
     case "delete_cart":
       if (isset($_GET['id_cart'])) {
         array_splice($_SESSION['cart'], $_GET['id_cart'], 1);

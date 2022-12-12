@@ -15,9 +15,9 @@
   <!-- <link rel="stylesheet" href="../../public/css/slick.css" type="text/css">
     <link rel="stylesheet" href="../../public/css/slick-theme.css" type="text/css">
     <script src="js/slick.min.js"></script> -->
-
   <link rel="stylesheet" href="../public/css/dashboard.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 </head>
 
 <body>
@@ -111,9 +111,21 @@
         <li>
           <a href="index.php?act=comment"> <i class="fas fa-comments"></i>Bình luận</a>
         </li>
+
         <li>
-          <a href="index.php?act=stat"><i class="fas fa-chart-line"></i></i>Thống kê</a>
+          <a href="#stat" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Thống kê
+            <i class="fas fa-angle-right float-xl-right"></i>
+          </a>
+          <ul class="collapse list-unstyled" id="stat">
+            <li>
+              <a href="index.php?act=stat"><i class="fas fa-shipping-fast"></i></i>Thống kê hàng hóa</a>
+            </li>
+            <li>
+              <a href="index.php?act=chart"><i class="fas fa-shipping-fast"></i></i>Thống kê doanh thu</a>
+            </li>
+          </ul>
         </li>
+
         <li>
           <a href="#order" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-list-alt"></i>Đơn hàng
             <i class="fas fa-angle-right float-xl-right"></i>

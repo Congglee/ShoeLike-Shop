@@ -32,7 +32,7 @@
 
         </tbody>
       </table>
-      <!-- <a href="index.php?act=bieu_do" class="btn btn-info text-white">Xem biểu đồ<i class="fas fa-eye ml-2"></i></a> -->
+      <!-- <a href="./stat/chart_order.php" class="btn btn-info text-white">Xem biểu đồ<i class="fas fa-eye ml-2"></i></a> -->
     </div>
   </div>
 </div>

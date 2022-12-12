@@ -35,7 +35,15 @@
 
       <div class="mt-3" width="100%">
         <ul class="pagination justify-content-center">
-
+          <?php
+          for ($i = 1; $i <= $_SESSION['total_page']; $i++) {
+          ?>
+            <li class="page-item" <?= $_SESSION['page'] == $i ? 'active' : '' ?>>
+              <a class="page-link" href="index.php?act=list_detail_pro_img&page=<?= $i ?>"><?= $i ?></a>
+            </li>
+          <?php
+          }
+          ?>
         </ul>
       </div>
     </div>

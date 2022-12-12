@@ -18,9 +18,9 @@
   <section class="products-filter">
     <div class="products-container">
       <div class="filter">
-        <h3 class="filter-title">SẮP XẾP THEO</h3>
+        <h3 class="filter-title"></h3>
         <?php
-        include "products_filter.php";
+        // include "products_filter.php";
         ?>
       </div>
     </div>
@@ -175,7 +175,7 @@
       </div>
       <div class="products-pages">
         <?php
-        include "products_pages.php";
+        // include "products_pages.php";
         ?>
         <!-- <a href="index.php?act=products&page=2" class="products-pages-item">2</a>
         <a href="index.php?act=products&page=3" class="products-pages-item">3</a>
