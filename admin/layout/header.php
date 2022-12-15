@@ -30,7 +30,7 @@
     <nav id="sidebar">
       <div class="sidebar-header">
         <a href="index.php">
-          <img src="../public/images/logo.png" style="width: 100px; height: 30px;" alt="logo" class="img-fluid logo">
+          <img src="../public/images/logo-removebg-preview.png" style="width: 100px; height: 30px;" alt="logo" class="img-fluid logo">
         </a>
       </div>
       <ul class="list-unstyled components text-secondary">
@@ -136,6 +136,12 @@
             </li>
             <li>
               <a href="index.php?act=list_order_unfullfill"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng chưa thực hiện (<?= $order_unfullfill ?>)</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_order_processing"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng đang xử lý (<?= $order_processing ?>)</a>
+            </li>
+            <li>
+              <a href="index.php?act=list_order_delivering"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng đang giao (<?= $order_delivering ?>)</a>
             </li>
             <li>
               <a href="index.php?act=list_order_delivered"><i class="fas fa-shipping-fast"></i></i>Danh sách đơn hàng đã giao (<?= $order_delivered ?>)</a>

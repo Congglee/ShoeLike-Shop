@@ -377,3 +377,22 @@ button {
     color: #ea344f;
   }
 }
+
+.topBtn {
+  display: none;
+  position: fixed;
+  bottom: 40px;
+  right: 25px;
+  z-index: 99;
+  font-size: 18px;
+  background-color: #ea344f;
+  cursor: pointer;
+  // padding: 15px;
+  color: $white-color;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  &:hover {
+    background-color: $secondary-color;
+  }
+}

@@ -81,7 +81,7 @@
                     <span class="ship-info-contact-content"><?= $order_phone ?></span>
                   </div>
                   <div class="ship-info-contact-item">
-                    <span class="ship-info-contact-title">Tổng giá tiền</span>
+                    <span class="ship-info-contact-title">Tổng giá đơn hàng</span>
                     <!-- <span class="ship-info-contact-content">
                       <?= number_format($list_order[0]['total_order'], "0", ",", ".") ?>đ</span> -->
                     <span class="ship-info-contact-content"><?= number_format($total_order, "0", ",", ".") ?>đ</span>
@@ -106,6 +106,20 @@
                         ";
                       } else if ($payment == 2) {
                         echo "Thanh toán trực tiếp khi nhận hàng";
+                      } else if ($payment == 3) {
+                        echo "<div class='ship-info-bill-payment'>
+                        <p>Hình thức: Thanh toán qua cổng VNPAY</p>
+                        <p>Ngân hàng: NCB</p>
+                        <p>Nội dung thanh toán: Thanh toán đơn hàng đặt tại website</p>
+                        <p>Trạng thái: Thành công</p>
+                      </div>";
+                      } else if ($payment == 4) {
+                        echo "<div class='ship-info-bill-payment'>
+                                  <p>Hình thức: Thanh toán qua ví MoMo ATM</p>
+                                  <p>Ngân hàng: SGB</p>
+                                  <p>Nội dung thanh toán: Thanh toán đơn hàng đặt tại website</p>
+                                  <p>Trạng thái: Thành công</p>
+                                </div>";
                       }
                       ?>
                     </span>
@@ -122,7 +136,7 @@
                                   <p>Quá trình xử lý đơn hàng có thể mất đến vài phút, xin quý khách vui lòng chờ đợi</p>
                               </div>
                           ";
-                      } else if ($payment == 2) {
+                      } else if ($payment == 2 || $payment == 3 || $payment = 4) {
                         echo "<div class='ship-info-bill-payment'>
                                 <p>Quý khách có thể kiểm tra trong đơn hàng của tài khoản cá nhân</p>
                                 <p>Quá trình xử lý đơn hàng có thể mất đến vài phút, xin quý khách vui lòng chờ đợi</p>

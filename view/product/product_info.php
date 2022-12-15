@@ -33,22 +33,17 @@
           </ul> -->
 
         <!-- <h3 class="heading-medium product-info-title-left">
-GIÀY BÓNG ĐÁ UNISEX NIKE FW PHANTOM GT2 CLUB TF
+GIÀY ĐI BỘ ĐƯỜNG DÀI NỮ COLUMBIA PEAKFREAK™ II OUTDRY™
           </h3>
            <p>
-    Được thiết kế dựa trên dòng giày đá bóng đa năng Phantom GT, Nike Phantom GT2 TF thế hệ mới được cải tiến đáng kể trong thiết kế với kiểu dáng và chức năng, hỗ trợ cực tốt cho các động tác chuyền và sút bóng với độ chính xác cao.
+Khi trời mưa hoặc khi địa hình có tuyết tan mềm, đôi giày đi bộ của phụ nữ này cung cấp khả năng bảo vệ chống chịu thời tiết đặc biệt và có kết cấu thoáng khí. Công nghệ khóa lưới và hệ thống dây giữa bàn chân liền mạch giúp đôi giày này trở nên hoàn hảo cho những chuyến phiêu lưu cả ngày. Dù ướt hay khô, cỏ hay sỏi, đế ngoài được thiết kế giúp bạn vững vàng trên mọi địa hình.
         </p>
-          <h3 class="heading-medium product-info-title-left">Kiểm soát tốt hơn</h3>
-          <p>
-  Phần upper được làm từ các hạt nổi Generative Texture phủ với mật độ dày hơn, tăng độ bám giúp người mang cảm nhận được bóng nhiều hơn và kiểm soát bóng tốt hơn
-        </p>
-        <h3 class="heading-medium product-info-title-left">Thiết kế bền bỉ</h3>
-        <p>
-Giày được làm từ da tổng hợp bền và dễ lau chùi, mang lại sự êm ái vừa vặn cho bàn chân
-      </p>
           <h3 class="heading-medium product-info-title-left">THÔNG SỐ</h3>
           <ul>
-             <li>Đinh giày được làm từ cao su cao cấp có thiết kế hình chữ nhật, được phân bố đều khắp mặt đế giúp đôi giày có thể bám sân tốt hơn trên mặt sân cỏ nhân tạo.</li>
+             <li>Phần trên (upper): NAVIC FIT SYSTEM ™ mang đến khả năng cố định chân giữa tự nhiên. Công nghệ OutDry™ không thấm nước, kết cấu thoáng khí. Lưới liền mạch mang lại sự vừa vặn và hỗ trợ đặc biệt.</li>
+             <li>Đế giữa: đế giữa bằng bọt mật độ đơn Techlite+™ mang lại trải nghiệm đệm dưới bàn chân nhạy bén đồng thời mang lại sự thoải mái và ổn định vượt trội trên đường mòn.</li>
+             <li>Đế ngoài: đế ngoài Adapt Trax™ cung cấp lực kéo vượt trội dù trong điều kiện khô hay ướt.</li>
+             <li>Lưu ý: dây buộc và khóa kéo được tích hợp trong giày dép của Columbia Sportswear Company không chống thấm nước.</li>
           </ul> -->
         <p>
           <?= htmlspecialchars_decode($description) ?>

@@ -13,7 +13,7 @@
 
   <section class="ship-info">
     <div class="container">
-      <form action="index.php?act=bill_confirm" class="ship-info-container" method="post">
+      <form action="index.php?act=bill_confirm" class="ship-info-container" method="post" enctype="application/x-www-form-urlencoded">
         <div class="ship-info-confirm">
           <div class="ship-info-contact ship-info-confirm-list">
             <div class="ship-info-contact-list ship-info-confirm-item">
@@ -68,10 +68,29 @@
                 <label for="tt">Thanh toán khi nhận hàng</label>
               </div>
             </div>
+            <div class="ship-info-method-payment-list ship-info-confirm-item">
+              <div class="ship-info-method-radio2">
+                <input type="radio" name="payment" id="vnpay" value="3">
+                <label for="vnpay">Thanh toán cổng VNPAY
+                </label>
+                <img src="././public/images/vnpay-logo.png" alt="">
+              </div>
+            </div>
+            <div class="ship-info-method-payment-list ship-info-confirm-item">
+              <div class="ship-info-method-radio2">
+                <input type="radio" name="payment" id="momo" value="4">
+                <label for="momo">Thanh toán Ví MoMo ATM
+                </label>
+                <img src="././public/images/momo-logo.png" alt="">
+              </div>
+            </div>
           </div>
-          <button class="ship-info-confirm-submit" name="btn_submit">
+          <button class="ship-info-confirm-submit" name="redirect">
             Xác nhận thanh toán
           </button>
+          <!-- <button class="ship-info-confirm-submit" name="redirect">
+            Thanh toán Ví MoMo
+          </button> -->
         </div>
 
         <div class="ship-info-bill ship-info-confirm-bill">
@@ -122,7 +141,7 @@
         <input type="hidden" name="address" value="<?= $order_address ?>">
         <input type="hidden" name="phone" value="<?= $order_phone ?>">
         <input type="hidden" name="total_order" value="<?= $total ?>">
-        <input type="hidden" name="note" value="<?= $note ?>">
+        <input type="hidden" name="note" value="<?= (isset($note)) ? $note : "" ?>">
       </form>
     </div>
   </section>

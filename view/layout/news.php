@@ -86,13 +86,15 @@
     <div class="news-item">
       <div class="news-image">
         <a href="#" class="news-link">
-          <img src="././public/images/news-1.avif" alt="" />
+          <img src="././public/images/news-8.avif" alt="" />
         </a>
       </div>
       <div class="news-detail">
         <h3 class="news-title">
           <a href="#">
-            Top 20 đôi giày tập gym chất lượng được yêu thích nhất
+
+            8 Cách Thắt Dây Giày Đá Bóng Chuẩn Kỹ Thuật, Chắc Chắn Không Tuột
+
           </a>
         </h3>
       </div>
@@ -100,13 +102,15 @@
     <div class="news-item">
       <div class="news-image">
         <a href="#" class="news-link">
-          <img src="././public/images/news-1.avif" alt="" />
+          <img src="././public/images/news-9.avif" alt="" />
         </a>
       </div>
       <div class="news-detail">
         <h3 class="news-title">
           <a href="#">
-            Top 20 đôi giày tập gym chất lượng được yêu thích nhất
+
+            Cách Thắt Dây Giày Theo Từng Bước Đơn Giản, Phù Hợp Thời Trang
+
           </a>
         </h3>
       </div>

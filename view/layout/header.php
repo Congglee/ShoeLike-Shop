@@ -16,6 +16,9 @@
 
 <body>
   <div class="wrapper">
+    <button onclick="topFunction()" id="myBtn" class="topBtn" title="Go to top">
+      <i class="fa fa-angle-up"></i>
+    </button>
     <header class="header">
       <div class="container">
         <div class="header-top">
@@ -118,7 +121,7 @@
 
         <div class="header-content">
           <a href="index.php" class="header-logo-link">
-            <img srcset="././public/images/logo.png 2x" alt="" class="header-logo" />
+            <img srcset="././public/images/logo-removebg-preview.png 2x" alt="" class="header-logo" />
           </a>
           <div class="header-feature">
             <div class="header-search">
@@ -332,13 +335,13 @@
               </div>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Giới thiệu</a>
+              <a href="index.php?act=about" class="menu-link">Giới thiệu</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Tin tức</a>
+              <a href="index.php?act=news" class="menu-link">Tin tức</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Liên hệ</a>
+              <a href="index.php?act=contact" class="menu-link">Liên hệ</a>
             </li>
           </ul>
 

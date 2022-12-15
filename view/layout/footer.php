@@ -36,7 +36,7 @@
           <h3 class="footer-heading heading-small">VỀ ShoeLike</h3>
           <ul class="footer-links">
             <li class="footer-item">
-              <a href="#" class="footer-link">Giới thiệu</a>
+              <a href="index.php?act=about" class="footer-link">Giới thiệu</a>
             </li>
             <li class="footer-item">
               <a href="#" class="footer-link">Hệ thống cửa hàng</a>
@@ -45,7 +45,7 @@
               <a href="#" class="footer-link">Sơ đồ Web</a>
             </li>
             <li class="footer-item">
-              <a href="#" class="footer-link">Thông tin liên hệ</a>
+              <a href="index.php?act=contact" class="footer-link">Thông tin liên hệ</a>
             </li>
           </ul>
         </div>
@@ -125,6 +125,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="././public/scripts/slider.js"></script>
 <script src="././public/scripts/tab.js"></script>
+<script src="././public/scripts/to_top.js"></script>
 <script src="././public/scripts/product_tab.js"></script>
 
 </html>

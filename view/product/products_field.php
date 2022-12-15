@@ -18,9 +18,12 @@
   <section class="products-filter">
     <div class="products-container">
       <div class="filter">
-        <h3 class="filter-title">SẮP XẾP THEO</h3>
+        <!-- <h3 class="filter-title">SẮP XẾP THEO</h3> -->
         <?php
-        include "products_filter.php";
+        if (!isset($_GET['field2']) && !isset($_GET['condition2'])) {
+          echo "<h3 class='filter-title'>SẮP XẾP THEO</h3>";
+          include "products_filter.php";
+        }
         ?>
       </div>
     </div>

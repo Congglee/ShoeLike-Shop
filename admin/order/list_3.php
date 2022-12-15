@@ -1,8 +1,8 @@
 <div class="content">
-  <div class="container">
-    <div class="page-title">
+  <div class="container" style="max-width: 1265px;">
+    <div class=" page-title">
       <h4 class="mt-5 font-weight-bold text-center">
-        Danh sách đơn hàng
+        Danh sách đơn hàng đã giao
       </h4>
     </div>
     <div class="box box-primary">
@@ -17,6 +17,7 @@
                 <th>Tổng giá</th>
                 <th>Ngày đặt</th>
                 <th>Note</th>
+                <th>Phương thức thanh toán</th>
                 <th>Tình trạng thanh toán</th>
                 <th>Tình trạng đơn hàng</th>
                 <th>
@@ -28,8 +29,8 @@
               <?php
               foreach ($list_order_delivered as $lod) {
                 extract($lod);
-                $update_order = "index.php?act=update_order&id_order=" . $id_order;
-                $delete_order = "index.php?act=delete_order&id_order=" . $id_order;
+                $update_order = "index.php?act=update_order_delivered&id_order=" . $id_order;
+                $delete_order = "index.php?act=delete_order_delivered&id_order=" . $id_order;
                 $countProduct = countOrderTotal($id_order);
               ?>
                 <tr>
@@ -49,11 +50,26 @@
                   <td><?= $note ?></td>
                   <td>
                     <?php
+                    if ($payment == 1) {
+                      echo "Chuyển khoản ngân hàng";
+                    } else if ($payment == 2) {
+                      echo "Thanh toán trực tiếp";
+                    } else if ($payment == 3) {
+                      echo "Thanh toán qua cổng VNPAY";
+                    } else if ($payment == 4) {
+                      echo "Thanh toán ví MoMo ATM";
+                    }
+                    ?>
+                  </td>
+                  <td>
+                    <?php
                     if ($payment == 2) {
                       echo "Chưa thanh toán";
                     } else if ($payment == 1 && $status == 0) {
                       echo "Chưa thanh toán";
                     } else if ($payment == 1 && $status != 0) {
+                      echo "Đã thanh toán";
+                    } else if ($payment == 3 || $payment == 4) {
                       echo "Đã thanh toán";
                     }
                     ?>

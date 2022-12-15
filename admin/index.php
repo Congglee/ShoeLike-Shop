@@ -12,6 +12,8 @@ include "../model/user.php";
 
 $order_unfullfill = count(showAllOrderUnFullFill());
 $order_delivered = count(showAllOrderDelivered());
+$order_processing = count(showAllOrderProcessing());
+$order_delivering = count(showAllOrderDelivering());
 include "layout/header.php";
 
 if (isset($_GET['act'])) {
@@ -435,6 +437,16 @@ if (isset($_GET['act'])) {
 
     case "list_order_unfullfill":
       $list_order_unfullfill = showAllOrderUnFullFill();
+      include "order/list_0.php";
+      break;
+
+    case "list_order_processing":
+      $list_order_processing = showAllOrderProcessing();
+      include "order/list_1.php";
+      break;
+
+    case "list_order_delivering":
+      $list_order_delivering = showAllOrderDelivering();
       include "order/list_2.php";
       break;
 
@@ -449,6 +461,78 @@ if (isset($_GET['act'])) {
         $order_total = getUserOrderTotalById($_GET['id_order']);
       }
       include "order/update.php";
+      break;
+
+    case "update_order_unfullfill":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update_0.php";
+      break;
+
+    case "update_order_processing":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update_1.php";
+      break;
+
+    case "update_order_delivering":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update_2.php";
+      break;
+
+    case "update_order_delivered":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = getUserOrderById($_GET['id_order']);
+        $order_total = getUserOrderTotalById($_GET['id_order']);
+      }
+      include "order/update_3.php";
+      break;
+
+    case "update_order_unfullfill_total":
+      if (isset($_POST['btn_update_order'])) {
+        $id_order = $_POST['id_order'];
+        $status = $_POST['status'];
+        updateOrderAdmin($id_order, $status);
+      }
+      $list_order_unfullfill = showAllOrderUnFullFill();
+      include "order/list_0.php";
+      break;
+
+    case "update_order_processing_total":
+      if (isset($_POST['btn_update_order'])) {
+        $id_order = $_POST['id_order'];
+        $status = $_POST['status'];
+        updateOrderAdmin($id_order, $status);
+      }
+      $list_order_processing = showAllOrderProcessing();
+      include "order/list_1.php";
+      break;
+
+    case "update_order_delivering_total":
+      if (isset($_POST['btn_update_order'])) {
+        $id_order = $_POST['id_order'];
+        $status = $_POST['status'];
+        updateOrderAdmin($id_order, $status);
+      }
+      $list_order_delivering = showAllOrderDelivering();
+      include "order/list_2.php";
+      break;
+
+    case "update_order_delivered_total":
+      if (isset($_POST['btn_update_order'])) {
+        $id_order = $_POST['id_order'];
+        $status = $_POST['status'];
+        updateOrderAdmin($id_order, $status);
+      }
+      $list_order_delivered = showAllOrderDelivered();
+      include "order/list_3.php";
       break;
 
     case "update_order_total":
@@ -469,16 +553,92 @@ if (isset($_GET['act'])) {
       include "order/list.php";
       break;
 
-    case "delete_order_total":
-      if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
-        $order = deleteOrderTotalAdmin($_GET['id_order_total']);
-      }
+    case "delete_order_unfullfill":
       if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
-        $order = getUserOrderById($_GET['id_order']);
-        $order_total = getUserOrderTotalById($_GET['id_order']);
+        $order = deleteOrderAdmin($_GET['id_order']);
       }
-      include "order/update.php";
+      $list_order_unfullfill = showAllOrderUnFullFill();
+      include "order/list_0.php";
       break;
+
+    case "delete_order_processing":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = deleteOrderAdmin($_GET['id_order']);
+      }
+      $list_order_processing = showAllOrderProcessing();
+      include "order/list_1.php";
+      break;
+
+    case "delete_order_delivering":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = deleteOrderAdmin($_GET['id_order']);
+      }
+      $list_order_delivering = showAllOrderDelivering();
+      include "order/list_2.php";
+      break;
+
+    case "delete_order_delivered":
+      if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+        $order = deleteOrderAdmin($_GET['id_order']);
+      }
+      $list_order_delivered = showAllOrderDelivered();
+      include "order/list_3.php";
+      break;
+
+      // case "delete_order_total":
+      //   if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+      //     $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      //   }
+      //   if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+      //     $order = getUserOrderById($_GET['id_order']);
+      //     $order_total = getUserOrderTotalById($_GET['id_order']);
+      //   }
+      //   include "order/update.php";
+      //   break;
+
+      // case "delete_order_unfullfill_total":
+      //   if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+      //     $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      //   }
+      //   if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+      //     $order = getUserOrderById($_GET['id_order']);
+      //     $order_total = getUserOrderTotalById($_GET['id_order']);
+      //   }
+      //   include "order/update_0.php";
+      //   break;
+
+      // case "delete_order_processing_total":
+      //   if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+      //     $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      //   }
+      //   if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+      //     $order = getUserOrderById($_GET['id_order']);
+      //     $order_total = getUserOrderTotalById($_GET['id_order']);
+      //   }
+      //   include "order/update_1.php";
+      //   break;
+
+      // case "delete_order_delivering_total":
+      //   if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+      //     $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      //   }
+      //   if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+      //     $order = getUserOrderById($_GET['id_order']);
+      //     $order_total = getUserOrderTotalById($_GET['id_order']);
+      //   }
+      //   include "order/update_2.php";
+      //   break;
+
+      // case "delete_order_delivered_total":
+      //   if (isset($_GET['id_order_total']) && ($_GET['id_order_total'] > 0)) {
+      //     $order = deleteOrderTotalAdmin($_GET['id_order_total']);
+      //   }
+      //   if (isset($_GET['id_order']) && ($_GET['id_order'] > 0)) {
+      //     $order = getUserOrderById($_GET['id_order']);
+      //     $order_total = getUserOrderTotalById($_GET['id_order']);
+      //   }
+      //   include "order/update_3.php";
+      //   break;
 
     case "comment":
       $list_comment = listCommentAdmin();

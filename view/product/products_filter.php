@@ -3,9 +3,9 @@ if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['condition'])
 ?>
   <select name="" id="" class="filter-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
     <option value="index.php?act=products_field&field=<?= $_GET['field'] ?>&condition=<?= $_GET['condition'] ?>&field2=special&condition2=1">Mới nhất</option>
-    <option <?php if (isset($_GET['sort_field']) && ($_GET['sort_field'] == "id_pro") && (isset($_GET['sort'])) && ($_GET['sort'] == "desc")) {
+    <option <?php if (isset($_GET['sort_field']) && ($_GET['sort_field'] == "id_pro") && (isset($_GET['sort'])) && ($_GET['sort'] == "asc")) {
               echo "selected";
-            } ?> value="index.php?act=products_field&field=<?= $_GET['field'] ?>&condition=<?= $_GET['condition'] ?>&sort_field=id_pro&sort=desc">Cũ đến mới</option>
+            } ?> value="index.php?act=products_field&field=<?= $_GET['field'] ?>&condition=<?= $_GET['condition'] ?>&sort_field=id_pro&sort=asc">Cũ đến mới</option>
     <option <?php if (isset($_GET['sort_field']) && ($_GET['sort_field'] == "views")) {
               echo "selected";
             } ?> value="index.php?act=products_field&field=<?= $_GET['field'] ?>&condition=<?= $_GET['condition'] ?>&sort_field=views&sort=desc">Nổi bật nhất</option>
@@ -30,9 +30,9 @@ if (isset($_GET['field']) && ($_GET['field'] != "") && isset($_GET['condition'])
 ?>
   <select name="" id="" class="filter-select" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
     <!-- <option value="index.php?act=products_field&field=special&condition=1">Mới nhất</option> -->
-    <option <?php if (isset($_GET['field_sort']) && ($_GET['field_sort'] == "id_pro") && (isset($_GET['sort'])) && ($_GET['sort'] == "desc")) {
+    <option <?php if (isset($_GET['field_sort']) && ($_GET['field_sort'] == "id_pro") && (isset($_GET['sort'])) && ($_GET['sort'] == "asc")) {
               echo "selected";
-            } ?> value="index.php?act=products_field&field_sort=id_pro&sort=desc">Cũ đến mới</option>
+            } ?> value="index.php?act=products_field&field_sort=id_pro&sort=asc">Cũ đến mới</option>
     <option <?php if (isset($_GET['field_sort']) && ($_GET['field_sort'] == "views") && (isset($_GET['sort'])) && ($_GET['sort'] == "desc")) {
               echo "selected";
             } ?> value="index.php?act=products_field&field_sort=views&sort=desc">Nổi bật nhất</option>

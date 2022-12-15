@@ -8,7 +8,7 @@ if (is_array($order)) {
   <div class="container">
     <div class="page-title">
       <h4 class="mt-5 font-weight-bold text-center">
-        Chi tiết đơn hàng
+        Chi tiết đơn hàng: <?= $id_bill ?>
       </h4>
     </div>
     <div class="box box-primary">
@@ -64,9 +64,9 @@ if (is_array($order)) {
                 <th>Số lượng</th>
                 <th>Tổng</th>
                 <th>Tình trạng đơn hàng</th>
-                <th>
+                <!-- <th>
                   <a href="" class="btn btn-success text-white">Thao tác</a>
-                </th>
+                </th> -->
               </tr>
             </thead>
             <tbody>
@@ -74,7 +74,7 @@ if (is_array($order)) {
               foreach ($order_total as $ot) {
                 extract($ot);
                 $into_money = $quantity * $price;
-                $delete_order_total = "index.php?act=delete_order_total&id_order_total=" . $id_order_total . "&id_order=" . $id_order;
+                // $delete_order_total = "index.php?act=delete_order_total&id_order_total=" . $id_order_total . "&id_order=" . $id_order;
               ?>
                 <tr>
                   <td>
@@ -100,10 +100,9 @@ if (is_array($order)) {
                     }
                     ?>
                   </td>
-                  <td class="text-end">
-                    <!-- <a href="" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a> -->
-                    <a href="<?= $delete_order_total ?>" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn có chắc là muốn xóa chứ ?')"><i class="fas fa-trash"></i></a>
-                  </td>
+                  <!-- <td class="text-end">
+                    <a href="" class="btn btn-outline-danger btn-rounded" onclick="return confirm('Bạn có chắc là muốn xóa chứ ?')"><i class="fas fa-trash"></i></a>
+                  </td> -->
                 </tr>
               <?php
               }
@@ -111,15 +110,15 @@ if (is_array($order)) {
             </tbody>
             <tfoot>
               <tr>
-                <th colspan="7" class="text-left">Tổng phụ</th>
+                <th colspan="6" class="text-left">Tổng phụ</th>
                 <td><?= number_format($total_order, "0", ",", ".") ?>đ</td>
               </tr>
               <tr>
-                <th colspan="7" class="text-left">Vận chuyển (FREESHIP)</th>
+                <th colspan="6" class="text-left">Vận chuyển (FREESHIP)</th>
                 <td>0đ</td>
               </tr>
               <tr>
-                <th colspan="7" class="text-left">Tổng</th>
+                <th colspan="6" class="text-left">Tổng</th>
                 <td><?= number_format($total_order, "0", ",", ".") ?>đ</td>
               </tr>
             </tfoot>

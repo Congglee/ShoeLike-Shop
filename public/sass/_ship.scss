@@ -179,6 +179,16 @@
           }
         }
       }
+      &-radio2 {
+        display: flex;
+        align-items: center;
+        gap: 0 10px;
+        img {
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+      }
       &-payment {
         h3 {
           font-size: 18px;

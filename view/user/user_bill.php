@@ -72,6 +72,8 @@
                             echo "Chưa thanh toán";
                           } else if ($payment == 1 && $status != 0) {
                             echo "Đã thanh toán";
+                          } else if ($payment == 3 || $payment = 4) {
+                            echo "Đã thanh toán";
                           }
                           ?>
                         </span>
@@ -96,9 +98,13 @@
                       </td>
                       <td>
                         <?php
-                        if ($status != 0 && $status != 1) {
+                        if ($status == 2) {
                         ?>
                           <a href="#" onclick="return alert('Đơn hàng đang được giao không hủy được !')" class="user-bill-disabled">Hủy</a>
+                        <?php
+                        } else if ($status == 3) {
+                        ?>
+                          <a href="#" onclick="return alert('Đơn hàng đã được giao không hủy được !')" class="user-bill-disabled">Hủy</a>
                         <?php
                         } else {
                         ?>
