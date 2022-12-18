@@ -66,13 +66,15 @@
                       <td>
                         <span>
                           <?php
-                          if ($payment == 2) {
+                          if ($payment == 2 && $status != 3) {
                             echo "Chưa thanh toán";
+                          } else if ($payment == 2 && $status == 3) {
+                            echo "Đã thanh toán";
                           } else if ($payment == 1 && $status == 0) {
                             echo "Chưa thanh toán";
                           } else if ($payment == 1 && $status != 0) {
                             echo "Đã thanh toán";
-                          } else if ($payment == 3 || $payment = 4) {
+                          } else if ($payment == 3 || $payment == 4) {
                             echo "Đã thanh toán";
                           }
                           ?>

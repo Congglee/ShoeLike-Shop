@@ -32,10 +32,10 @@
             <div class="product-cost">
               <?php
               if ($price_sale != 0) {
-                echo "<span class='product-bestsell-price product-price product-price-sale'>" . number_format($price_sale, 0, ",") . "đ</span>";
-                echo "<span class='product-price-old'> " . number_format($price, 0, ",") . "đ</span>";
+                echo "<span class='product-bestsell-price product-price product-price-sale'>" . number_format($price_sale, 0, ",", ".") . "đ</span>";
+                echo "<span class='product-price-old'> " . number_format($price, 0, ",", ".") . "đ</span>";
               } else {
-                echo "<span class='product-same-price product-price'>" . number_format($price, 0, ",") . "đ</span>";
+                echo "<span class='product-same-price product-price'>" . number_format($price, 0, ",", ".") . "đ</span>";
               }
               ?>
             </div>

@@ -140,8 +140,10 @@ if (is_array($user_order)) {
                     <span class="user-bill-payment-status">Tình trạng thanh toán:
                     </span>
                     <?php
-                    if ($payment == 2) {
+                    if ($payment == 2 && $status != 3) {
                       echo "Chưa thanh toán";
+                    } else if ($payment == 2 && $status == 3) {
+                      echo "Đã thanh toán";
                     } else if ($payment == 1 && $status == 0) {
                       echo "Chưa thanh toán";
                     } else if ($payment == 1 && $status != 0) {

@@ -299,9 +299,13 @@ if (isset($_GET['act'])) {
 
           $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
 
-          $partnerCode = 'MOMOBKUN20180529';
-          $accessKey = 'klm05TvNBzhg7h7j';
-          $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
+          $partnerCode = 'MOMO_ATM_DEV';
+          $accessKey = 'w9gEg8bjA2AM2Cvr';
+          $secretKey = 'mD9QAVi4cm9N844jh5Y2tqjWaaJoGVFM';
+
+          // $partnerCode = 'MOMOBKUN20180529';
+          // $accessKey = 'klm05TvNBzhg7h7j';
+          // $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
 
           $orderInfo = "Thanh toán qua MoMo ATM";
           $amount = $total_order;
@@ -334,7 +338,7 @@ if (isset($_GET['act'])) {
               'signature' => $signature
             );
             $result = execPostRequest($endpoint, json_encode($data));
-            $jsonResult = json_decode($result, true);  // decode json
+            $jsonResult = json_decode($result, true);
 
             header('Location: ' . $jsonResult['payUrl']);
           }

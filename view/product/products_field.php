@@ -117,7 +117,7 @@
           if (isset($_GET['sort_field']) && ($_GET['sort_field'] != "") && isset($_GET['sort']) && ($_GET['sort'] != "")) {
             $param = "products_field&field=" . $field . "&condition=" . $condition . "&field2=" . $field2 . "&condition2=" . $condition2 . "&sort_field=" . $sort_field . "&sort=" . $sort . "&";
           } else {
-            $param = "products_field&field=" . $field . "&condition=" . $condition . "&field2=" . $field2 . "&condition2=" . $condition2 . "&";
+            $param = "products_field&field=" . $field . "&condition=" . $condition . "&";
           }
           if ($field == $_GET['field'] && $condition == $_GET['condition']) {
             foreach ($list_pro_field as $lpf) {
@@ -143,7 +143,9 @@
       </div>
       <div class="products-pages">
         <?php
+        // if (!isset($_GET['field2']) && !isset($_GET['condition2'])) {
         include "products_pages.php";
+        // }
         ?>
       </div>
     </article>

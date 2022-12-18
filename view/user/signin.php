@@ -5,7 +5,7 @@
         <div class="signin-header form-header">
           <h3 class="form-heading signin-heading">Đăng nhập</h3>
           <span class="form-caption sigin-caption">Không có tài khoản?<a href="index.php?act=signup"> Đăng ký</a></span>
-          <div class="form-social signin-social">
+          <!-- <div class="form-social signin-social">
             <div class="form-social-item sigin-social-item">
               <img src="././public/images/fb.png" alt="" />
             </div>
@@ -18,7 +18,7 @@
           </div>
           <h4 class="form-already signin-already">
             <span>hoặc đăng nhập với email</span>
-          </h4>
+          </h4> -->
         </div>
 
         <form action="index.php?act=signin" class="form signin-form" method="post" enctype="multipart/form-data">

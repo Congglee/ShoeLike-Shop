@@ -120,9 +120,9 @@
             <li>
               <a href="index.php?act=stat"><i class="fas fa-shipping-fast"></i></i>Thống kê hàng hóa</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="index.php?act=chart"><i class="fas fa-shipping-fast"></i></i>Thống kê doanh thu</a>
-            </li>
+            </li> -->
           </ul>
         </li>
 
