@@ -99,11 +99,7 @@ This project was created using the following technologies.
 
 ## Screenshots
 
-![img-1](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319206/extends/shoeLike_homepage_2_d1anej.png)
-
----
-
-![img-3](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319205/extends/shoeLike_homepage_cdwtjk.png)
+![img-1](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319734/extends/shoeLike_homepage_3_doj81d.png)
 
 ---
 
