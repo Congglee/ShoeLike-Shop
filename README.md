@@ -103,10 +103,6 @@ This project was created using the following technologies.
 
 ---
 
-![img-2](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319205/extends/shoelike_productspage_f1hqdr.png)
-
----
-
 ![img-3](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319205/extends/shoeLike_homepage_cdwtjk.png)
 
 ---
