@@ -119,11 +119,11 @@ This project was created using the following technologies.
 
 ---
 
-![img-8](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319202/extends/shoelike_checkoutinfopage_yx4sty.png)
+![img-8](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319905/extends/shoelike_checkoutinfopage_2_f1oxve.png)
 
 ---
 
-![img-9](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319202/extends/shoelike_checkoutpaymentpage_lzejgc.png)
+![img-9](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319982/extends/shoelike_checkoutpaymentpage_2_jevyhk.png)
 
 ---
 
@@ -147,7 +147,7 @@ This project was created using the following technologies.
 
 ---
 
-![img-15](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319201/extends/shoelike_updateuserinfo_elj9ci.png)
+![img-15](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319969/extends/shoelike_updateuserinfo_2_tvbc5k.png)
 
 ---
 
