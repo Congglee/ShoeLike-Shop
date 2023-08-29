@@ -3,16 +3,16 @@
 </h5>
 <br/>
 
-- [Configuration and Setup](#configuration-and-setup)
-- [Key Features](#key-features)
-- [Technologies used](#technologies-used)
+- [⚙️ Configuration and Setup](#configuration-and-setup)
+- [🚀 Key Features](#key-features)
+- [🖥️ Technologies used](#technologies-used)
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [Database](#database)
 - [📸 Screenshots](#screenshots)
 - [Author](#author)
 
-## ⚙️ Configuration and Setup
+## Configuration and Setup
 
 To run this project locally, follow these steps:
 
@@ -53,7 +53,7 @@ To run this project locally, follow these steps:
 - Test the various features of the website to ensure everything is working as expected.
 - Explore different pages, functionalities, and interactions.
 
-## 🚀 Key Features
+## Key Features
 
 - Login/Register/Logout User Account
 - Update Profile/Password User Account
@@ -74,7 +74,7 @@ To run this project locally, follow these steps:
 
 <br/>
  
-## 🖥️ Technologies Used
+## Technologies Used
 
 This project was created using the following technologies.
 
@@ -100,6 +100,10 @@ This project was created using the following technologies.
 ## Screenshots
 
 ![img-1](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319734/extends/shoeLike_homepage_3_doj81d.png)
+
+---
+
+![img-2](https://res.cloudinary.com/di3eto0bg/image/upload/v1693320896/extends/shoelike_productspage_3_wfleyx.png)
 
 ---
 
