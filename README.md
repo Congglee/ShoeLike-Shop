@@ -147,7 +147,7 @@ This project was created using the following technologies.
 
 ---
 
-![img-15](https://res.cloudinary.com/di3eto0bg/image/upload/v1693319969/extends/shoelike_updateuserinfo_2_tvbc5k.png)
+![img-15](https://res.cloudinary.com/di3eto0bg/image/upload/v1693320144/extends/shoelike_updateuserinfo_3_f5733o.png)
 
 ---
 
