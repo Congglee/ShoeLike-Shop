@@ -83,7 +83,8 @@ This project was created using the following technologies.
 - [Bootstrap](https://getbootstrap.com/) - A front-end framework that provides a set of pre-made components and styles to make it easier to build responsive web pages.
 - [CSS](https://www.css3.com/) - A style sheet language that is used to control the appearance of web pages.
 - [SCSS](https://sass-lang.com/) - A preprocessor for CSS that adds features like variables, mixins, and functions.
-- [Slick Slider](https://kenwheeler.github.io/slick/) - A jQuery slider plugin that is used to create responsive sliders.
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - A preprocessor for CSS that adds features like variables, mixins, and functions.
+- [Slick Slider](https://kenwheeler.github.io/slick/) - A scripting language that is used to create interactive web pages.
 
 #### Backend
 
